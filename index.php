@@ -1,3 +1,3 @@
 <?php
-  require('controllers/nav.controller.php');
+  require('controllers/login.controller.php');
 ?>
