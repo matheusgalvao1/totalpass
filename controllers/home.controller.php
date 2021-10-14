@@ -1,3 +1,3 @@
 <?php
-    require("./views/home.view.php");
     require('controllers/nav.controller.php');
+    require('controllers/list.controller.php');
