@@ -4,22 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>TotalPass</title>
+    <style type="text/css">
+        section{
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container{
+            border: 10px solid gray;
+            max-width: 600px;
+            margin: auto;
+            width: 100%;
+            height: 50vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <div>
-            <label >Email</label>
-            <br />
-            <input type="text">
-            <br />
-            <label >Senha</label>
-            <br />
-            <input type="text">
+    <section>
+        <div class="container">
+            <label>Email</label><br />
+            <input type="text"><br />
+            <label >Senha</label><br />
+            <input type="password">
         </div>
-    </div>
+    </section>
 </body>
 </html>
