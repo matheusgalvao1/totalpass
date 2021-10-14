@@ -12,18 +12,17 @@
 </head>
 
 <body class="body">
-    <h1>Contas</h1>
     <div class="vertical-list">
         <button type="button" class="list-button">Facebook</button>
-        <button type="button" class="list-button">Facebook</button>
-        <button type="button" class="list-button">Facebook</button>
-        <button type="button" class="list-button">Facebook</button>
-        <button type="button" class="list-button">Facebook</button>
-        <button type="button" class="list-button">Facebook</button>
-        <button type="button" class="list-button">Facebook</button>
-        <button type="button" class="list-button">Facebook</button>
-        <button type="button" class="list-button">Facebook</button>
-        <button type="button" class="list-button">Facebook</button>
+        <button type="button" class="list-button">Instagram</button>
+        <button type="button" class="list-button">Twitter</button>
+        <button type="button" class="list-button">Microsoft</button>
+        <button type="button" class="list-button">Google</button>
+        <button type="button" class="list-button">Snap</button>
+        <button type="button" class="list-button">Spotify</button>
+        <button type="button" class="list-button">Yahoo</button>
+        <button type="button" class="list-button">Discord</button>
+        <button type="button" class="list-button">Moodle</button>
     </div>
 </body>
 
