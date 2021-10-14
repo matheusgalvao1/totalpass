@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/list.css">
 </head>
 
-<body>
+<body class="body">
     <h1>Contas</h1>
     <div class="vertical-list">
         <button type="button" class="list-button">Facebook</button>
@@ -19,7 +19,11 @@
         <button type="button" class="list-button">Facebook</button>
         <button type="button" class="list-button">Facebook</button>
         <button type="button" class="list-button">Facebook</button>
-        <button type="button" >Facebook</button>
+        <button type="button" class="list-button">Facebook</button>
+        <button type="button" class="list-button">Facebook</button>
+        <button type="button" class="list-button">Facebook</button>
+        <button type="button" class="list-button">Facebook</button>
+        <button type="button" class="list-button">Facebook</button>
     </div>
 </body>
 
