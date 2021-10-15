@@ -1,8 +1,22 @@
 <?php
+    $erro = '';
     session_start();
     if (!empty($_POST['enviarDados'])){
         $email = $_POST['inputEmail'];
         $senha = $_POST['inputSenha'];
+
+        if (!filter_input(INPUT_POST, 'inputEmail', FILTER_VALIDATE_EMAIL)){
+            $erro = "O Email inserido não é válido!";
+        }else{
+            if ($email == "admin@email.com" && $senha == "admin"){
+                $_SESSION['logado'] = true;
+                $_SESSION['email'] = "Mairo";
+
+                header("Location: ./controllers/home.controller.php");
+            } else{
+                $erro = "Email ou senha inválida";
+            }
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -24,6 +38,11 @@
                 <div class="col-md-6 login-form-2">
                     <h3>Acesso ao TotalPass</h3>
                     <form action = "index.php" method="POST">
+                        <?php if($erro != ''): ?>
+                            <div style = "color: red;">
+                                <strong><?= $erro ?></strong>
+                            </div>
+                        <?php endif; ?>
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Seu email *" value="" name="inputEmail"/>
                         </div>
