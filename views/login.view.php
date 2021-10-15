@@ -36,9 +36,9 @@
 </head>
 <body>
     <div class="fundo">
-        <div class="container login-container">
-            <div class="row">
-                <div class="col-md-6 login-form-2">
+        <div class="container login-container" style="padding-top: 5%">
+            <div class="d-flex justify-content-center">
+                <div class="col-md-6 login-form-2" style="border-radius: 20px;">
                     <h3>Acesso ao TotalPass</h3>
                     <form action = "index.php" method="POST">
                         <?php if($erro != ''): ?>
@@ -47,16 +47,16 @@
                             </div>
                         <?php endif; ?>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Seu email *" value="" name="inputEmail"/>
+                            <input type="text" class="form-control" placeholder="Email *" value="" name="inputEmail"/>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Sua senha *" value="" name="inputSenha" />
+                            <input type="password" class="form-control" placeholder="Senha *" value="" name="inputSenha" />
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btnSubmit" value="Login" name="enviarDados"/>
                         </div>
                         <div class="form-group">
-                            <a href="#" class="ForgetPwd" value="Login">Ainda sem conta? <strong>Cadastrar</strong></a>
+                            <a href="#" class="ForgetPwd" value="Login"><bolder style="font-size: 20px">Cadastrar</bolder></a>
                         </div>
                     </form>
                 </div>
