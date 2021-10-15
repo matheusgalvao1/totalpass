@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <ul class="nav justify-content-center">
+    <ul class="nav justify-content-center" style="font-size: 30px;">
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Contas</a>
         </li>
