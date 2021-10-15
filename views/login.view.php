@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +18,7 @@
             <div class="row">
                 <div class="col-md-6 login-form-2">
                     <h3>Acesso ao TotalPass</h3>
-                    <form>
+                    <form action = "login.view.php" method="POST">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Seu email *" value="" />
                         </div>
