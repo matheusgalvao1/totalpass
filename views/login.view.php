@@ -1,4 +1,9 @@
 <?php
+    session_start();
+    if (!empty($_POST['enviarDados'])){
+        $email = $_POST['inputEmail'];
+        $senha = $_POST['inputSenha'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,15 +23,15 @@
             <div class="row">
                 <div class="col-md-6 login-form-2">
                     <h3>Acesso ao TotalPass</h3>
-                    <form action = "login.view.php" method="POST">
+                    <form action = "index.php" method="POST">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Seu email *" value="" />
+                            <input type="text" class="form-control" placeholder="Seu email *" value="" name="inputEmail"/>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Sua senha *" value="" />
+                            <input type="password" class="form-control" placeholder="Sua senha *" value="" name="inputSenha" />
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btnSubmit" value="Login" />
+                            <input type="submit" class="btnSubmit" value="Login" name="enviarDados"/>
                         </div>
                         <div class="form-group">
                             <a href="#" class="ForgetPwd" value="Login">Ainda sem conta? <strong>Cadastrar</strong></a>
