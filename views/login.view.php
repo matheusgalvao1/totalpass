@@ -1,6 +1,9 @@
 <?php
     $erro = '';
-    session_start();
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    }
     if (!empty($_POST['enviarDados'])){
         $email = $_POST['inputEmail'];
         $senha = $_POST['inputSenha'];
@@ -12,7 +15,7 @@
                 $_SESSION['logado'] = true;
                 $_SESSION['email'] = "Mairo";
 
-                header("Location: ./controllers/home.controller.php");
+                header("Location: index.php");
             } else{
                 $erro = "Email ou senha inválida";
             }
