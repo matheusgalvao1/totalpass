@@ -56,8 +56,6 @@ function checarSelecionado()
         }
 
         .padding3 {
-            border-radius: 10px;
-            border: 3px solid royalblue;
             margin: auto;
             padding: 10px;
             width: 20%;
@@ -84,17 +82,27 @@ function checarSelecionado()
     </div>
 </h1>
 
-<h3>
+<h4>
     <?php if ($selected != '') : ?>
         <div class="padding3">
-            <p><?php echo "<b>" . $selected  . "</b>" ?></p>
-            <ul>
-                <li><?php echo "<b>" . 'Login:  ' . "</b>" . $items[$selected]['login']; ?></li>
-                <li><?php echo "<b>" . 'Senha:  ' . "</b>" . $items[$selected]['senha']; ?></li>
-            </ul>
+            <h1>
+                <?php echo "<b>" . $selected  . "</b>" ?>
+                <button type="button" class="btn btn-danger">Excluir</button>
+            </h1>
+            <form action="index.php" method="POST">
+                <div class="form-group">
+                    <label for="login">Login</label>
+                    <input type="text" id="login" name="login" value="<?= $items[$selected]['login'] ?>">
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="text" id="senha" name="senha" value="<?= $items[$selected]['senha'] ?>">
+                </div>
+                <button type="button" class="btn btn-primary">Salvar</button>
+            </form>
         </div>
     <?php endif ?>
-</h3>
+</h4>
 
 <h2>
     <div class="padding2">
@@ -104,7 +112,7 @@ function checarSelecionado()
         <?php foreach ($items as $conta => $login) : ?>
             <form action="index.php" method="POST">
                 <input type="hidden" name="selected" value="<?= opcaoDeConta($conta) ?>">
-                <button type="button" class="btn btn-primary" method><?php echo $conta; ?></button>
+                <button type="button" class="btn btn-primary"><?php echo $conta; ?></button>
             </form>
         <?php endforeach ?>
     </div>
