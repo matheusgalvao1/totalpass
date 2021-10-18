@@ -31,7 +31,7 @@
                 <button type="button" class="btn btn-danger" style="width: 210px">Cancelar</button>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-success" style="width: 210px">Adicionar</button>
+                <button type="button" class="btn btn-success" style="width: 210px"><i class="fa fa-plus" style="padding-right: 20px"></i>Adicionar</button>
             </div>
         </div>
     </form>

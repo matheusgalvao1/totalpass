@@ -25,10 +25,10 @@
             </div>
             <div class="row" style="padding-top: 15px">
                 <div class="col">
-                    <button type="button" class="btn btn-danger" style="width: 210px">Excluir</button>
+                    <button type="button" class="btn btn-danger" style="width: 210px"><i class="fa fa-trash" style="margin-right: 20px"></i>Excluir</button>
                 </div>
                 <div class="col">
-                    <button type="button" class="btn btn-success" style="width: 210px">Salvar</button>
+                    <button type="button" class="btn btn-success" style="width: 210px"><i class="fa fa-check" style="padding-right: 20px"></i>Salvar</button>
                 </div>
             </div>
         </form>
