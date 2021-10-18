@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -20,7 +21,7 @@
             <a class="nav-link" href="#">Meus Dados</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Sair</a>
+            <a class="nav-link" href="logout.php">Sair</a>
         </li>
     </ul>
 </body>
