@@ -2,7 +2,6 @@
 
 $selected = 'Github'; //checarSelecionado();
 
-$new = false;
 
 function opcaoDeConta($atual)
 {
@@ -18,7 +17,7 @@ function checarSelecionado()
     return '';
 }
 
-function setNew(bool $value)
+function checarNew(bool $value)
 {
     $new = $value;
 }
@@ -52,11 +51,14 @@ function setNew(bool $value)
     <div class="row">
         <?php
         require('controllers/contas.controller.php');
-        if ($new)
-            require('controllers/contaNew.controller.php');
-        else if ($selected != '')
-            require('controllers/contaEdit.controller.php');
         ?>
+        <div class="col">
+            <?php
+            require('controllers/contaNew.controller.php');
+            require('controllers/contaEdit.controller.php');
+            ?>
+        </div>
+
     </div>
 </div>
 

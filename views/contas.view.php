@@ -13,12 +13,9 @@
             <div class="row">
                 <div class="col">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Buscar Conta" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <input type="text" class="form-control" placeholder="Buscar Conta" aria-label="user" aria-describedby="button-addon2">
                         <button type="button" class="btn btn-primary">Buscar</button>
                     </div>
-                </div>
-                <div class="col">
-                    <button type="button" class="btn btn-outline-primary">Adicionar Conta</button>
                 </div>
             </div>
             <?php foreach ($items as $conta => $login) : ?>
