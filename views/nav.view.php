@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -13,14 +12,14 @@
 </head>
 
 <body>
-    <ul class="nav justify-content-center">
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Contas</a>
+    <ul class="nav justify-content-center border-bottom border-primary">
+        <li class="nav-item" style="margin: 10px">
+            <a class="nav-link" aria-current="page" href="#">Contas</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" style="margin: 10px">
             <a class="nav-link" href="#">Meus Dados</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" style="margin: 10px">
             <a class="nav-link" href="logout.php">Sair</a>
         </li>
     </ul>
