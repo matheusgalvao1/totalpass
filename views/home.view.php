@@ -1,12 +1,6 @@
 <?php
 
-$selected = 'Github'; //checarSelecionado();
-
-
-function opcaoDeConta($atual)
-{
-    return $atual;
-}
+$selected = checarSelecionado();
 
 function checarSelecionado()
 {
@@ -14,15 +8,8 @@ function checarSelecionado()
         $selected = $_POST['selected'];
         return $selected;
     }
-    return '';
+    return 'Facebook';
 }
-
-function checarNew(bool $value)
-{
-    $new = $value;
-}
-
-
 
 ?>
 

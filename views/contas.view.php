@@ -17,7 +17,7 @@
         <button type="button" class="btn btn-link" style="margin-bottom: 20px; padding-left: 0px;">Ver todas as contas</button>
         <?php foreach ($items as $conta => $login) : ?>
             <form action="index.php" method="POST">
-                <input type="hidden" name="selected" value="<?= opcaoDeConta($conta) ?>">
+                <input type="hidden" name="selected" value=$conta>
                 <button type="button" class="btn btn-primary" style="width: 400px; margin-bottom: 5px; font-size: 20px"><?php echo $conta; ?></button>
             </form>
         <?php endforeach ?>
