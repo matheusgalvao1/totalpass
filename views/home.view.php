@@ -41,54 +41,10 @@ function checarSelecionado()
 
 <div class="container"  style="padding-top: 30px">
     <div class="row" >
-        <div class="col">
-            <div class="row">
-                <div class="col">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Buscar Conta" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button type="button" class="btn btn-primary">Buscar</button>
-                    </div>
-                </div>
-                <div class="col">
-                    <button type="button" class="btn btn-outline-primary">Adicionar Conta</button>
-                </div>
-            </div>
-            <?php foreach ($items as $conta => $login) : ?>
-                <form action="index.php" method="POST">
-                    <input type="hidden" name="selected" value="<?= opcaoDeConta($conta) ?>">
-                    <button type="button" class="btn btn-primary" style="width: 300px; margin: 5px; font-size: 20px"><?php echo $conta; ?></button>
-                </form>
-            <?php endforeach ?>
-        </div>
-
-        <div class="col">
-            <?php if ($selected != '') : ?>
-                <div class="contaBox">
-                    <h1>
-                        <?php echo "<b>" . $selected  . "</b>" ?>
-                    </h1>
-                    <form action="index.php" method="POST">
-                        <div class="form-group">
-                            <label for="login">Login</label>
-                            <input class="form-control" type="text" value="<?= $items[$selected]['login'] ?>">
-                        </div>
-                        <div class="form-group">
-                            <label for="senha">Senha</label>
-                            <input class="form-control" type="text" value="<?= $items[$selected]['senha'] ?>">
-                        </div>
-                        <div class="row" style="padding-top: 15px">
-                            <div class="col">
-                                <button type="button" class="btn btn-danger" style="width: 210px">Excluir</button>
-                            </div>
-                            <div class="col">
-                                <button type="button" class="btn btn-success" style="width: 210px">Salvar</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            <?php endif ?>
-        </div>
-
+        <?php
+        require('controllers/contas.controller.php');
+        require('controllers/contaEdit.controller.php');
+        ?>
     </div>
 </div>
 
