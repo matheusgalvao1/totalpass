@@ -47,7 +47,7 @@ function checarNew(bool $value)
     </style>
 </head>
 
-<div class="container" style="padding-top: 30px">
+<div class="container" style="padding-top: 30px; padding-bottom: 30px" >
     <div class="row">
         <?php
         require('controllers/contas.controller.php');
