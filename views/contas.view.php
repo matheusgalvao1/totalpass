@@ -10,10 +10,11 @@
 
 <body>
     <div class="col">
-        <div class="input-group mb-3" style="width: 400px">
+        <div class="input-group mb-3" style="width: 400px;">
             <input type="text" class="form-control" placeholder="Buscar Conta" aria-label="user" aria-describedby="button-addon2">
             <button type="button" class="btn btn-primary">Buscar</button>
         </div>
+        <button type="button" class="btn btn-link" style="margin-bottom: 20px; padding-left: 0px;">Ver todas as contas</button>
         <?php foreach ($items as $conta => $login) : ?>
             <form action="index.php" method="POST">
                 <input type="hidden" name="selected" value="<?= opcaoDeConta($conta) ?>">
