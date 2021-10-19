@@ -18,12 +18,12 @@
 </form>
 
 <form action="contas.controller.php" method="GET">
-    <input type="hidden" name="busca" value="">
+    <input type="hidden" name="busca" value="semBusca">
     <button type="submit" class="btn btn-link" style="margin-bottom: 20px; padding: 0px;">Ver todas as contas</button>
 </form>
 
 
-<?php if ($busca != '') :  // caso uma busca tenha sido feita 
+<?php if ($busca != 'semBusca') :  // caso uma busca tenha sido feita 
 ?>
     <?php if (isset($items[$busca])) : // caso a busca encontre 
     ?>
@@ -49,6 +49,7 @@
     <?php endif ?>
 <?php else : // caso nao haja busca 
 ?>
+<form action="contaEdit.controller.php" method="POST">
     <?php foreach ($items as $conta => $login) : ?>
         <form action="contaEdit.controller.php" method="POST">
             <input type="hidden" name="selected" value=<?php echo $conta ?>>
