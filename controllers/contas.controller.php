@@ -1,13 +1,12 @@
 <?php
-
-    function checarBusca()
-    {
-        if (!empty($_POST['busca'])) {
-            $b = $_POST['busca'];
-            return $b;
-        }
-        return '';
+function checarBusca()
+{
+    if (!empty($_GET['busca'])) {
+        $b = $_GET['busca'];
+        return $b;
     }
-    $busca = checarBusca();
+    return '';
+}
+$busca = checarBusca();
 
-    require('views/contas.view.php');
+require('views/contas.view.php');
