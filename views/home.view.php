@@ -19,19 +19,19 @@
     </style>
 </head>
 
-<div class="container" style="padding-top: 30px; padding-bottom: 30px" >
+<div class="container" style="padding-top: 30px; padding-bottom: 30px">
     <div class="row">
-        <?php
-        require('controllers/contas.controller.php');
-        ?>
+        <div class="col" style="margin-right: 250px; ">
+            <?php
+            require('controllers/contas.controller.php');
+            ?>
+        </div>
         <div class="col">
             <?php
             require('controllers/contaNew.controller.php');
             require('controllers/contaEdit.controller.php');
             ?>
         </div>
-
     </div>
-</div>
 
 </html>

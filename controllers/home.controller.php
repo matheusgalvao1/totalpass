@@ -4,11 +4,11 @@
     function checarSelecionado()
     {
         if (!empty($_POST['selected'])) {
-            $selected = $_POST['selected'];
-            return $selected;
+            $s = $_POST['selected'];
+            return $s;
         }
         
-        return '';
+        return 'Google';
     }
 
 
