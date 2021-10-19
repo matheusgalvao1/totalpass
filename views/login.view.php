@@ -1,3 +1,6 @@
+<?php
+    include "./controllers/login.controller.php"
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +19,7 @@
             <div class="d-flex justify-content-center">
                 <div class="col-md-6 login-form-2" style="border-radius: 20px;">
                     <h3>Acesso ao TotalPass</h3>
-                    <form action = "./controllers/login.controller.php" method="POST">
+                    <form action = "index.php" method="POST">
                         <?php if($erro != ''): ?>
                             <div style = "color: red;">
                                 <strong><?= $erro ?></strong>

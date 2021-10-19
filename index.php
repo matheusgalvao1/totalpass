@@ -1,7 +1,7 @@
 <?php
   session_start();
   if (empty($_SESSION['logado']) || !$_SESSION['logado']){
-    require("controllers/login.controller.php");
+    require("views/login.view.php");
   } else{
     require("controllers/home.controller.php");
   }

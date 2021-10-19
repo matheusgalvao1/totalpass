@@ -20,7 +20,5 @@
                 $erro = "Email ou senha inválida";
             }
         }
-    }else{
-        require('./views/login.view.php');
     }
 ?>
