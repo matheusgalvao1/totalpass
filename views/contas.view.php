@@ -18,8 +18,8 @@
 </form>
 
 <form action="contas.controller.php" method="GET">
-    <input type="hidden" name="selected" value=$busca>
-    <button method="GET" type="submit" class="btn btn-link" style="margin-bottom: 20px; padding: 0px;" value="">Ver todas as contas</button>
+    <input type="hidden" name="busca" value="">
+    <button method="GET" type="submit" class="btn btn-link" style="margin-bottom: 20px; padding: 0px;">Ver todas as contas</button>
 </form>
 
 
