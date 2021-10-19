@@ -1,16 +1,3 @@
-<?php
-function checarSelecionado()
-{
-    if (!empty($_POST['selected'])) {
-        $selected = $_POST['selected'];
-        return $selected;
-    }
-    return 'Google';
-}
-
-$selected = checarSelecionado();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 

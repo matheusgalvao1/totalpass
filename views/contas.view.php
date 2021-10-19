@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="col">
+    <div class="col" style="padding-top: 10px">
         <div class="input-group mb-3" style="width: 400px;">
             <input type="text" class="form-control" placeholder="Buscar Conta" aria-label="user" aria-describedby="button-addon2">
             <button class="btn btn-primary"><i class="fa fa-search"></i></button>
