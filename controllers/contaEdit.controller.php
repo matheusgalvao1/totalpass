@@ -7,7 +7,7 @@ function checarSelecionado()
         return $s;
     }
 
-    return 'Google';
+    return '';
 }
 
 

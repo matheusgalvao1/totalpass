@@ -1,2 +1,3 @@
 <?php
-    require('views/contaNew.view.php');
+
+require('views/contaNew.view.php');

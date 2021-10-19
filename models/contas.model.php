@@ -13,12 +13,17 @@ $items = [
 //array_push($items, ['novaconta' => ['login' => 'aaaaaa', 'senha' => 'aaaa']]);
 //$items[] = adicionar('Spotify', 'matheus', 'senhaa');
 
-$items = array_merge($items, adicionarConta('Spotify', 'matheus', 'senhaa')); //Adiciona 
+//$items = array_merge($items, novaConta('Spotify', 'matheus', 'senhaa')); //Adiciona 
 unset($items['UTFPR']); //Exclui
 
+if (!empty($_POST['novoNome'])) {
+    $n = $_POST['novoNome'];
+    $l = $_POST['novoLogin'];
+    $s = $_POST['novaSenha'];
+    $items = array_merge($items, novaConta($n, $l, $s));
+}
 
-
-function adicionarConta($nomeConta, $loginConta, $senhaConta)
+function novaConta($nomeConta, $loginConta, $senhaConta)
 {
     $array = [
         $nomeConta => [
@@ -29,5 +34,3 @@ function adicionarConta($nomeConta, $loginConta, $senhaConta)
 
     return $array;
 }
-
-
