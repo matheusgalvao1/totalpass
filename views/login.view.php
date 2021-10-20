@@ -35,7 +35,7 @@
                             <input type="submit" class="btnSubmit" value="Login" name="enviarDados"/>
                         </div>
                         <div class="form-group">
-                            <a href="#" class="ForgetPwd" value="Login"><bolder style="font-size: 20px">Cadastrar</bolder></a>
+                            <a href="views/cadastrar.view.php" class="ForgetPwd" value="Login"><bolder style="font-size: 20px">Cadastrar</bolder></a>
                         </div>
                     </form>
                 </div>
