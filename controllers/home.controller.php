@@ -2,7 +2,7 @@
     $controle = true;
 
     require('nav.controller.php');
-    include('models/contas.model.php');
+    require('models/contas.model.php');
     if ($controle)
         require('views/home.view.php');
     else
