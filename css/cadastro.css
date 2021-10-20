@@ -38,6 +38,7 @@
     padding: 1.5%;
     border: none;
     cursor: pointer;
+    background: green;
 }
 .cad-form-1 .btnSubmit{
     font-weight: 600;

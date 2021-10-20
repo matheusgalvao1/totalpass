@@ -49,9 +49,9 @@
     <?php endif ?>
 <?php else : // caso nao haja busca 
 ?>
-<form action="contaEdit.controller.php" method="POST">
+<form action="index.php" method="POST">
     <?php foreach ($items as $conta => $login) : ?>
-        <form action="contaEdit.controller.php" method="POST">
+        <form action="index.php" method="POST">
             <input type="hidden" name="selected" value=<?php echo $conta ?>>
             <button type="submit" class="btn btn-primary" style="width: 400px; margin-bottom: 5px; font-size: 20px"><?php echo $conta; ?></button>
         </form>
