@@ -1,0 +1,61 @@
+.fundo{
+    height: 100vh;
+    background: #333;
+    align-items: center;
+    justify-content: center;
+}
+.cad-container{/*
+    margin-top: 5%;
+    margin-bottom: 5%;*/
+    vertical-align: middle;
+    width: 600px;
+    height: 600px;
+}
+.cad-form-1{
+    padding: 5%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.cad-form-1 h3{
+    text-align: center;
+    color: #333;
+}
+.cad-form-2{
+    padding: 5%;
+    background: #0062cc;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.cad-form-2 h3{
+    text-align: center;
+    color: #fff;
+}
+.cad-container form{
+    padding: 10%;
+}
+.btnSubmit
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+}
+.cad-form-1 .btnSubmit{
+    font-weight: 600;
+    color: #fff;
+    background-color: #0062cc;
+}
+.cad-form-2 .btnSubmit{
+    font-weight: 600;
+    color: #0062cc;
+    background-color: #fff;
+}
+.cad-form-2 .ForgetPwd{
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+.cad-form-1 .ForgetPwd{
+    color: #0062cc;
+    font-weight: 600;
+    text-decoration: none;
+}
