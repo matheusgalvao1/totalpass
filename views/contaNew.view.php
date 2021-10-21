@@ -30,8 +30,11 @@
         <div class="form-group">
             <label>Senha</label>
             <div class="input-group mb-3">
-                <input class="form-control" type="text" name="novaSenha" value=<?php echo $senhaAleatoria?>>
-                <button type="submit" class="btn btn-primary">Gerar aleatória</button>
+                <input class="form-control" type="text" name="novaSenha" value=<?php echo $senhaAleatoria ?>>
+                <form action="index.php?acao=contaNew" method="POST">
+                    <input type="hidden" name="gerarSenha" value=<?php true ?>>
+                    <button type="submit" class="btn btn-primary">Gerar aleatória</button>
+                </form>
             </div>
         </div>
         <div class="row" style="padding-top: 15px">
