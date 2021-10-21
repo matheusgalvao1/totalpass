@@ -25,7 +25,6 @@ if (!empty($_POST['novoNome'])) {
     }
 }
 
-
 function novaConta($nomeConta, $loginConta, $senhaConta)
 {
     $array = [

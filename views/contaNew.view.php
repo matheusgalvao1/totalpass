@@ -33,10 +33,7 @@
         </div>
         <div class="row" style="padding-top: 15px">
             <div class="col">
-                <button type="button" class="btn btn-danger" style="width: 210px">Cancelar</button>
-            </div>
-            <div class="col">
-                <button type="submit" class="btn btn-success" style="width: 210px"><i class="fa fa-plus" style="padding-right: 20px"></i>Adicionar</button>
+                <button type="submit" class="btn btn-success btn-lg" style="font-size:25px; font-weight: bold"><i class="fa fa-plus" style="padding-right: 20px"></i>Adicionar</button>
             </div>
         </div>
     </form>
