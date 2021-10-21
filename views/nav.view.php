@@ -14,10 +14,7 @@
 <body>
     <ul class="nav justify-content-center border-bottom border-primary">
         <li class="nav-item" style="margin: 10px">
-            <a class="nav-link" aria-current="page" href="#"><i class="fa fa-list-ul" style="margin-right: 5px"></i>Contas</a>
-        </li>
-        <li class="nav-item" style="margin: 10px">
-            <a class="nav-link" href="/views/meusDados.view.php"><i class="fa fa-user-circle" style="margin-right: 5px"></i>Meus Dados</a>
+            <a class="nav-link" aria-current="page" href=""><i class="fa fa-list-ul" style="margin-right: 5px"></i>Contas</a>
         </li>
         <li class="nav-item" style="margin: 10px">
             <a class="nav-link" href="logout.php"><i class="fa fa-sign-out" style="margin-right: 5px"></i>Sair</a>
