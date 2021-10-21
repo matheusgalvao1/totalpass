@@ -7,10 +7,12 @@ function checarSelecionado()
     }
     return '';
 }
+
 $selected = checarSelecionado();
-$items = $_SESSION['contas'];
-$loginTemp = $items[$selected]['login'];
-$senhaTemp = $items[$selected]['senha'];
+
+$items = $_SESSION['contas'] ?? '';
+$loginTemp = $items[$selected]['login'] ?? '';
+$senhaTemp = $items[$selected]['senha'] ?? '';
 
 // Editar
 if (!empty($_POST['editarLogin']) && !empty($_POST['editarSenha'])) {
@@ -23,9 +25,11 @@ if (!empty($_POST['editarLogin']) && !empty($_POST['editarSenha'])) {
 }
 
 // Excluir
-/*if(!empty($_POST['excluir'])){
+if(!empty($_POST['excluir'])){
     unset($items[$selected]);
+    $selected = '';
+    $_SESSION['contaSelecionada'] = $selected;
     $_SESSION['contas'] = $items; 
-} */
+} 
 
 require('views/contaEdit.view.php');

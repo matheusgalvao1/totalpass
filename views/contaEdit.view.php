@@ -23,17 +23,14 @@
                 <label for="senha">Senha</label>
                 <input class="form-control" type="text" name="editarSenha" value="<?= $senhaTemp ?>">
             </div>
-            <div class="row" style="padding-top: 15px">
-                <div class="col">
-                    <form action="index.php?acao=contaEdit" method="POST">
-                        <input type="hidden" name="excluir" value="excluir">
-                        <button type="submit" class="btn btn-danger" style="width: 210px"><i class="fa fa-trash" style="margin-right: 20px"></i>Excluir</button>
-                    </form>
-                </div>
-                <div class="col">
-                    <button type="submit" class="btn btn-success" style="width: 210px"><i class="fa fa-check" style="padding-right: 20px"></i>Salvar</button>
-                </div>
+            <div class="col" style="padding-top: 15px">
+                <button type="submit" class="btn btn-success" style="width: 210px"><i class="fa fa-check" style="padding-right: 20px"></i>Salvar</button>
             </div>
+
+        </form>
+        <form action="index.php?acao=contaEdit" method="POST" style="padding-top: 15px">
+            <input type="hidden" name="excluir" value="excluir">
+            <button type="submit" class="btn btn-danger" style="width: 210px"><i class="fa fa-trash" style="margin-right: 20px"></i>Excluir</button>
         </form>
     </div>
 <?php endif ?>
