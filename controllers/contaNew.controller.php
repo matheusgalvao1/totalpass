@@ -6,6 +6,7 @@ $senhaAleatoria = '';
 // ADD CONTA
 include("controllers/redirect.php");
 include("./models/contas.model.php");
+include("controllers/geradorDeSenha.php");
 
 //$items = $_SESSION['contas'] ?? [];
 if (!empty($_POST['novoNome'])) {
@@ -27,6 +28,11 @@ if (!empty($_POST['novoNome'])) {
             }
         }
     }
+}
+
+if (!empty($_POST['gerarSenha'])){
+    echo 'Entrou';
+    $senhaAleatoria = gerarSenha();
 }
 
 function novaConta($nomeConta, $loginConta, $senhaConta)
