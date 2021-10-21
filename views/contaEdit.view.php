@@ -14,7 +14,7 @@
         <h1>
             <?php echo "<b>" . $selected  . "</b>" ?>
         </h1>
-        <form action="index.php" method="POST">
+        <form action="index.php?acao=contaEdit" method="POST">
             <div class="form-group">
                 <label for="login">Login</label>
                 <input class="form-control" type="text" value="<?= $items[$selected]['login'] ?>">
