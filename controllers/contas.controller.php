@@ -4,10 +4,21 @@ include("./models/contas.model.php");
 include("controllers/geradorDeSenha.php");
 ?>
 
-<script type="text/javascript"> 
-function change(){
-    document.getElementById("senha").setAttribute('value','senha Aleatoria');
-}
+<script type="text/javascript">
+    function makeid(length) {
+        var result = '';
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for (var i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() *
+                charactersLength));
+        }
+        return result;
+    }
+
+    function change() {
+        document.getElementById("senha").value = 'senhaGerada';
+    }
 </script>
 
 <?php
@@ -16,14 +27,14 @@ function checarBusca()
 {
     if (!empty($_GET['busca'])) {
         $b = $_GET['busca'];
-        setcookie('busca', $b, time()+60*60*24*30);
+        setcookie('busca', $b, time() + 60 * 60 * 24 * 30);
         return $b;
     }
     return $_COOKIE['busca'] ?? 'semBusca';
 }
 $busca = checarBusca();
 
-if (!empty($_POST['selected'])){
+if (!empty($_POST['selected'])) {
     $_SESSION['contaSelecionada'] = $_POST['selected'];
 }
 
@@ -32,7 +43,7 @@ $items = $_SESSION['contas'] ?? [];
 $erroNew = '';
 
 // NEW ----------------------------------------------------------------------------------------------------------------------------------------------------
-if (!empty($_POST['gerarSenha'])){
+if (!empty($_POST['gerarSenha'])) {
     $senhaAleatoria = gerarSenha();
 }
 
@@ -46,12 +57,12 @@ if (!empty($_POST['novoNome'])) {
             if (empty($_POST['novaSenha'])) {
                 $erroNew = 'Senha não pode ser vazia';
             } else {
-            $n = $_POST['novoNome'];
-            $l = $_POST['novoLogin'];
-            $s = $_POST['novaSenha'];
-            $items = array_merge($items, novaConta($n, $l, $s));
-            $_SESSION['contas'] = $items;
-            header("Location: /");
+                $n = $_POST['novoNome'];
+                $l = $_POST['novoLogin'];
+                $s = $_POST['novaSenha'];
+                $items = array_merge($items, novaConta($n, $l, $s));
+                $_SESSION['contas'] = $items;
+                header("Location: /");
             }
         }
     }
@@ -94,10 +105,10 @@ if (!empty($_POST['editarLogin']) && !empty($_POST['editarSenha'])) {
     $_SESSION['contas'] = $items;
     $selected = '';
     $_SESSION['contaSelecionada'] = $selected;
-} 
+}
 
 // Excluir
-if(!empty($_POST['excluir'])){
+if (!empty($_POST['excluir'])) {
     unset($items[$selected]);
     $selected = '';
     $_SESSION['contaSelecionada'] = $selected;
