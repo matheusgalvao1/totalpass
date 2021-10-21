@@ -1,4 +1,5 @@
 <?php
+
 function checarSelecionado()
 {
     if (!empty($_SESSION['contaSelecionada'])) {
@@ -36,7 +37,7 @@ if(!empty($_POST['excluir'])){
     unset($items[$selected]);
     $selected = '';
     $_SESSION['contaSelecionada'] = $selected;
-    $_SESSION['contas'] = $items; 
+    $_SESSION['contas'] = $items;
 } 
 
 require('views/contaEdit.view.php');

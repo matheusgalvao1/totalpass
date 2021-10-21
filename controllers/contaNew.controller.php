@@ -22,6 +22,7 @@ if (!empty($_POST['novoNome'])) {
             $s = $_POST['novaSenha'];
             $items = array_merge($items, novaConta($n, $l, $s));
             $_SESSION['contas'] = $items;
+            redirect('index.php?acao=home');
             }
         }
     }
