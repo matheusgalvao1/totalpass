@@ -17,11 +17,11 @@
         <form action="index.php?acao=contaEdit" method="POST">
             <div class="form-group">
                 <label for="login">Login</label>
-                <input class="form-control" type="text" name="editarLogin" value="<?= $items[$selected]['login'] ?>">
+                <input class="form-control" type="text" name="editarLogin" value="<?= $loginTemp ?>">
             </div>
             <div class="form-group">
                 <label for="senha">Senha</label>
-                <input class="form-control" type="text" name="editarSenha" value="<?= $items[$selected]['senha'] ?>">
+                <input class="form-control" type="text" name="editarSenha" value="<?= $senhaTemp ?>">
             </div>
             <div class="row" style="padding-top: 15px">
                 <div class="col">
