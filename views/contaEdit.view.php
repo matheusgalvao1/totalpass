@@ -17,18 +17,21 @@
         <form action="index.php?acao=contaEdit" method="POST">
             <div class="form-group">
                 <label for="login">Login</label>
-                <input class="form-control" type="text" value="<?= $items[$selected]['login'] ?>">
+                <input class="form-control" type="text" name="editarLogin" value="<?= $items[$selected]['login'] ?>">
             </div>
             <div class="form-group">
                 <label for="senha">Senha</label>
-                <input class="form-control" type="text" value="<?= $items[$selected]['senha'] ?>">
+                <input class="form-control" type="text" name="editarSenha" value="<?= $items[$selected]['senha'] ?>">
             </div>
             <div class="row" style="padding-top: 15px">
                 <div class="col">
-                    <button type="button" class="btn btn-danger" style="width: 210px"><i class="fa fa-trash" style="margin-right: 20px"></i>Excluir</button>
+                    <form action="index.php?contaEdit" method="POST">
+                        <input type="hidden" name="excluir" value="excluir">
+                        <button type="submit" class="btn btn-danger" style="width: 210px"><i class="fa fa-trash" style="margin-right: 20px"></i>Excluir</button>
+                    </form>
                 </div>
                 <div class="col">
-                    <button type="button" class="btn btn-success" style="width: 210px"><i class="fa fa-check" style="padding-right: 20px"></i>Salvar</button>
+                    <button type="submit" class="btn btn-success" style="width: 210px"><i class="fa fa-check" style="padding-right: 20px"></i>Salvar</button>
                 </div>
             </div>
         </form>

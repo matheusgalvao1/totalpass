@@ -10,6 +10,7 @@ function checarBusca()
 }
 $busca = checarBusca();
 
+
 $items = $_SESSION['contas'] ?? '';
 
 require('views/contas.view.php');

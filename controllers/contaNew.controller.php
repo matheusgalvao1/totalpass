@@ -4,7 +4,9 @@ $erroNew = '';
 
 // ADD CONTA
 include("controllers/redirect.php");
-$items = $_SESSION['contas'] ?? [];
+include("./models/contas.model.php");
+
+//$items = $_SESSION['contas'] ?? [];
 if (!empty($_POST['novoNome'])) {
     if (preg_match('/\s/', $_POST['novoNome'])) {
         $erroNew = 'Nome não deve conter espaços';
