@@ -13,6 +13,11 @@
     <h1>
         <?php echo "<b>" . 'Nova Conta'  . "</b>" ?>
     </h1>
+    <?php if ($erroNew != '') : ?>
+        <div style="color: red;">
+            <strong><?= $erroNew ?></strong>
+        </div>
+    <?php endif; ?>
     <form action="index.php?acao=contaNew" method="POST">
         <div class="form-group">
             <label>Nome da conta</label>

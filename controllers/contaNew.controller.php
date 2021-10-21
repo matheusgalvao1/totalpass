@@ -1,14 +1,30 @@
 <?php
+
+$erroNew = '';
+
 // ADD CONTA
 include("controllers/redirect.php");
 $items = $_SESSION['contas'] ?? [];
 if (!empty($_POST['novoNome'])) {
-    $n = $_POST['novoNome'];
-    $l = $_POST['novoLogin'];
-    $s = $_POST['novaSenha'];
-    $items = array_merge($items, novaConta($n, $l, $s));
-    $_SESSION['contas'] = $items;
+    if (preg_match('/\s/', $_POST['novoNome'])) {
+        $erroNew = 'Nome não deve conter espaços';
+    } else {
+        if (empty($_POST['novoLogin'])) {
+            $erroNew = 'Login não pode ser vazio';
+        } else {
+            if (empty($_POST['novaSenha'])) {
+                $erroNew = 'Senha não pode ser vazia';
+            } else {
+            $n = $_POST['novoNome'];
+            $l = $_POST['novoLogin'];
+            $s = $_POST['novaSenha'];
+            $items = array_merge($items, novaConta($n, $l, $s));
+            $_SESSION['contas'] = $items;
+            }
+        }
+    }
 }
+
 
 function novaConta($nomeConta, $loginConta, $senhaConta)
 {
