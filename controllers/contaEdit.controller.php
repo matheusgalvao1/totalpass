@@ -25,12 +25,7 @@ if (!empty($_POST['editarLogin']) && !empty($_POST['editarSenha'])) {
     $_SESSION['contas'] = $items;
     $selected = '';
     $_SESSION['contaSelecionada'] = $selected;
-} else {
-    if(empty($_POST['editarLogin']))
-        $erroEditar = 'O login não pode ser vazio';
-    else if(empty($_POST['editarSenha']))
-        $erroEditar = 'A senha não pode ser vazia';
-}
+} 
 
 // Excluir
 if(!empty($_POST['excluir'])){

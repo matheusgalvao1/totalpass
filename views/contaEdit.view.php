@@ -14,11 +14,6 @@
         <h1>
             <?php echo "<b>" . $selected  . "</b>" ?>
         </h1>
-        <?php if ($erroEditar != '') : ?>
-            <div style="color: red;">
-                <strong><?= $erroEditar ?></strong>
-            </div>
-        <?php endif; ?>
         <form action="index.php?acao=contaEdit" method="POST">
             <div class="form-group">
                 <label for="login">Login</label>
