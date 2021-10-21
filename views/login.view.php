@@ -1,6 +1,3 @@
-<?php
-    include "./controllers/login.controller.php"
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

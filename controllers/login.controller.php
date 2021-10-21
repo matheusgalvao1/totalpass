@@ -21,4 +21,6 @@
             }
         }
     }
+
+    include("views/login.view.php");
 ?>
