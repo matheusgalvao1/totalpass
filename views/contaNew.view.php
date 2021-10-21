@@ -13,7 +13,7 @@
     <h1>
         <?php echo "<b>" . 'Nova Conta'  . "</b>" ?>
     </h1>
-    <form action="contas.model.php" method="POST">
+    <form action="index.php" method="POST">
         <div class="form-group">
             <label>Nome da conta</label>
             <input class="form-control" type="text" name="novoNome">
