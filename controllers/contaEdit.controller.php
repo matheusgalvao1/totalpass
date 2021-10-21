@@ -13,6 +13,7 @@ $selected = checarSelecionado();
 $items = $_SESSION['contas'] ?? '';
 $loginTemp = $items[$selected]['login'] ?? '';
 $senhaTemp = $items[$selected]['senha'] ?? '';
+$erroEditar = '';
 
 // Editar
 if (!empty($_POST['editarLogin']) && !empty($_POST['editarSenha'])) {
@@ -21,7 +22,13 @@ if (!empty($_POST['editarLogin']) && !empty($_POST['editarSenha'])) {
     $loginTemp = $_POST['editarLogin'];
     $senhaTemp = $_POST['editarSenha'];
     $_SESSION['contas'] = $items;
-    $_SESSION['contaSelecionada'] = '';
+    $selected = '';
+    $_SESSION['contaSelecionada'] = $selected;
+} else {
+    if(empty($_POST['editarLogin']))
+        $erroEditar = 'O login não pode ser vazio';
+    else if(empty($_POST['editarSenha']))
+        $erroEditar = 'A senha não pode ser vazia';
 }
 
 // Excluir
