@@ -8,9 +8,6 @@
       require("controllers/login.controller.php");
     }
   } else{
-    if ($acao != 'erro'){
-      require("controllers/" . $acao . ".controller.php");
-    }
     require("controllers/home.controller.php");
   }
 ?>
