@@ -16,7 +16,7 @@
             <div class="d-flex justify-content-center">
                 <div class="col-md-6 cad-form-2" style="border-radius: 20px;">
                     <h3>Cadastrar Usuário</h3>
-                    <form action = "/index.php?acao=cadastrar" method="POST">
+                    <form action = "index.php?acao=cadastrar" method="POST">
                         <div class="form-group">
                             <p class = "erro"><?= $erroNome ?></p>
                             <input type="text" class="form-control" placeholder="Nome *" value="<?= $nome?>" name="inputNome"/>
@@ -34,7 +34,7 @@
                         </div>
                         <div class="form-group">
                             <p class = "erro"><?= $erroSenha2 ?></p>
-                            <input type="password" class="form-control" placeholder="Repita a senha *" value="<?= $senha2?>" name="inputSenha"/>
+                            <input type="password" class="form-control" placeholder="Repita a senha *" value="<?= $senha2?>" name="inputSenha2"/>
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btnSubmit" value="Cadastrar" name="enviarCadastro"/>
