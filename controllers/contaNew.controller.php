@@ -1,6 +1,7 @@
 <?php
 
 $erroNew = '';
+$senhaAleatoria = '';
 
 // ADD CONTA
 include("controllers/redirect.php");

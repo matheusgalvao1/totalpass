@@ -29,7 +29,10 @@
         </div>
         <div class="form-group">
             <label>Senha</label>
-            <input class="form-control" type="text" name="novaSenha">
+            <div class="input-group mb-3">
+                <input class="form-control" type="text" name="novaSenha" value=<?php echo $senhaAleatoria?>>
+                <button type="submit" class="btn btn-primary">Gerar aleatória</button>
+            </div>
         </div>
         <div class="row" style="padding-top: 15px">
             <div class="col">
