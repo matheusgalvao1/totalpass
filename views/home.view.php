@@ -23,13 +23,13 @@
     <div class="row">
         <div class="col" style="margin-right: 250px; ">
             <?php
-            require('controllers/contas.controller.php');
+                require('controllers/contas.controller.php');
             ?>
         </div>
         <div class="col">
             <?php
-            require('controllers/contaNew.controller.php');
-            require('controllers/contaEdit.controller.php');
+                require('controllers/contaNew.controller.php');
+                require('controllers/contaEdit.controller.php');
             ?>
         </div>
     </div>

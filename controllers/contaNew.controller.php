@@ -9,6 +9,10 @@ include("./models/contas.model.php");
 include("controllers/geradorDeSenha.php");
 
 //$items = $_SESSION['contas'] ?? [];
+if (!empty($_POST['gerarSenha'])){
+    $senhaAleatoria = gerarSenha();
+}
+
 if (!empty($_POST['novoNome'])) {
     if (preg_match('/\s/', $_POST['novoNome'])) {
         $erroNew = 'Nome não deve conter espaços';
@@ -24,15 +28,10 @@ if (!empty($_POST['novoNome'])) {
             $s = $_POST['novaSenha'];
             $items = array_merge($items, novaConta($n, $l, $s));
             $_SESSION['contas'] = $items;
-            redirect('index.php?acao=home');
+            header("Location: /");
             }
         }
     }
-}
-
-if (!empty($_POST['gerarSenha'])){
-    echo 'Entrou';
-    $senhaAleatoria = gerarSenha();
 }
 
 function novaConta($nomeConta, $loginConta, $senhaConta)
