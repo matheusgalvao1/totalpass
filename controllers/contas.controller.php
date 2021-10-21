@@ -1,11 +1,17 @@
 <?php
-
-// TAVA NO NEW TAMBEM ----------------------------------------------------------------------------------------------------------------------------------------------------
 include("controllers/redirect.php");
 include("./models/contas.model.php");
 include("controllers/geradorDeSenha.php");
-// ----------------------------------------------------------------------------------------------------------------------------------------------------
+?>
 
+<script type="text/javascript"> 
+function change(){
+    document.getElementById("senha").setAttribute('value','senha Aleatoria');
+}
+</script>
+
+<?php
+// JA TAVA NO CONTAS ----------------------------------------------------------------------------------------------------------------------------------------------------
 function checarBusca()
 {
     if (!empty($_GET['busca'])) {
@@ -24,7 +30,6 @@ if (!empty($_POST['selected'])){
 $items = $_SESSION['contas'] ?? [];
 
 $erroNew = '';
-$senhaAleatoria = '';
 
 // NEW ----------------------------------------------------------------------------------------------------------------------------------------------------
 if (!empty($_POST['gerarSenha'])){
