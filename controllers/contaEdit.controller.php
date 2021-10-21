@@ -2,13 +2,14 @@
 
 function checarSelecionado()
 {
-    if (!empty($_POST['selected'])) {
-        $s = $_POST['selected'];
-        setcookie('contaSelecionada', $s, time()+60*60*24*30);
+    if (!empty($_SESSION['contaSelecionada'])) {
+        $s = $_SESSION['contaSelecionada'];
         return $s;
     }
-    return $_COOKIE['tema'] ?? '';
+    return '';
 }
+$items = $_SESSION['contas'];
+$selected = checarSelecionado();
 
 // Editar
 if (!empty($_POST['editarLogin']) && !empty($_POST['editarSenha'])) {
@@ -22,7 +23,5 @@ if(!empty($_POST['excluir'])){
     unset($items[$selected]);
     $_SESSION['contas'] = $items; 
 }
-
-$selected = checarSelecionado();
 
 require('views/contaEdit.view.php');

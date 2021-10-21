@@ -25,7 +25,7 @@
             </div>
             <div class="row" style="padding-top: 15px">
                 <div class="col">
-                    <form action="index.php?contaEdit" method="POST">
+                    <form action="index.php?acao=contaEdit" method="POST">
                         <input type="hidden" name="excluir" value="excluir">
                         <button type="submit" class="btn btn-danger" style="width: 210px"><i class="fa fa-trash" style="margin-right: 20px"></i>Excluir</button>
                     </form>

@@ -11,14 +11,14 @@
 </head>
 
 
-<form action="index.php?contas" method="GET">
+<form action="index.php?acao=contas" method="GET">
     <div class="input-group mb-3" style="width: 400px;">
         <input type="text" class="form-control" placeholder="Buscar Conta" id="buscar" name="busca">
         <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
     </div>
 </form>
 
-<form action="index.php?contas" method="GET">
+<form action="index.php?acao=contas" method="GET">
     <input type="hidden" name="busca" value="semBusca">
     <button type="submit" class="btn btn-link" style="margin-bottom: 20px; padding: 0px;"><i class="fa fa-refresh" style="padding-right: 10px"></i>Recarregar todas as contas</button>
 </form>
@@ -28,7 +28,7 @@
     ?>
         <?php if (isset($items[$busca])) : // caso a busca encontre 
         ?>
-            <form action="index.php?contas" method="POST">
+            <form action="index.php?acao=contas" method="POST">
                 <input type="hidden" name="selected" value=<?php echo $busca?>>
                 <button type="submit" class="btn btn-primary" style="width: 400px; margin-bottom: 5px; font-size: 20px"><?php echo $busca; ?></button>
             </form>
@@ -51,7 +51,7 @@
     <?php else : // caso nao haja busca 
     ?>
         <?php foreach ($items as $conta => $login) : ?>
-            <form action="index.php?contas" method="POST">
+            <form action="index.php?acao=contas" method="POST">
                 <input type="hidden" name="selected" value=<?php echo $conta ?>>
                 <button type="submit" class="btn btn-primary" style="width: 400px; margin-bottom: 5px; font-size: 20px"><?php echo $conta; ?></button>
             </form>

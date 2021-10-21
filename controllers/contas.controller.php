@@ -10,6 +10,9 @@ function checarBusca()
 }
 $busca = checarBusca();
 
+if (!empty($_POST['selected'])){
+    $_SESSION['contaSelecionada'] = $_POST['selected'];
+}
 
 $items = $_SESSION['contas'] ?? '';
 
