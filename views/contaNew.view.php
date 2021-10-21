@@ -8,7 +8,7 @@
     <title>Nova Conta</title>
 </head>
 
-<div class="contaBox" style="border: 5px solid green;">
+<div class="contaBox" style="border: 5px solid green; padding-right: 0px">
     <h1>
         <?php echo "<b>" . 'Nova Conta'  . "</b>" ?>
     </h1>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group">
                     <label>Senha</label>
-                    <input class="form-control" type="text" name="novaSenha" style="width: 250px" value=<?php echo $senhaAleatoria ?>>
+                    <input class="form-control" type="text" name="novaSenha" style="width: 270px" value=<?php echo $senhaAleatoria ?>>
                 </div>
                 <div class="row" style="padding-top: 15px">
                     <div class="col">
