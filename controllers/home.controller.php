@@ -1,5 +1,5 @@
 <?php
 
 require('nav.controller.php');
-//include('models/contas.model.php');
+include('contas.controller.php');
 require('views/home.view.php');

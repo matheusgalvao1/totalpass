@@ -14,7 +14,7 @@
         <h1>
             <?php echo "<b>" . $selected  . "</b>" ?>
         </h1>
-        <form action="index.php?acao=contaEdit" method="POST">
+        <form action="index.php?acao=contas" method="POST">
             <div class="form-group">
                 <label for="login">Login</label>
                 <input class="form-control" type="text" name="editarLogin" value="<?= $loginTemp ?>">
@@ -28,7 +28,7 @@
             </div>
 
         </form>
-        <form action="index.php?acao=contaEdit" method="POST" style="padding-top: 15px">
+        <form action="index.php?acao=contas" method="POST" style="padding-top: 15px">
             <input type="hidden" name="excluir" value="excluir">
             <button type="submit" class="btn btn-danger" style="width: 210px"><i class="fa fa-trash" style="margin-right: 20px"></i>Excluir</button>
         </form>

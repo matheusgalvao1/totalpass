@@ -19,7 +19,7 @@
     <?php endif; ?>
     <div class="row">
         <div class='col' style="width: 200px">
-            <form action="index.php?acao=contaNew" method="POST">
+            <form action="index.php?acao=contas" method="POST">
                 <div class="form-group">
                     <label>Nome da conta</label>
                     <input class="form-control" type="text" name="novoNome" style="width: 400px">
@@ -34,13 +34,13 @@
                 </div>
                 <div class="row" style="padding-top: 15px">
                     <div class="col">
-                        <button type="submit" class="btn btn-success btn-lg" style="font-size:25px; font-weight: bold"><i class="fa fa-plus" style="padding-right: 20px"></i>Adicionar</button>
+                        <button type="dsa" class="btn btn-success btn-lg" style="font-size:25px; font-weight: bold"><i class="fa fa-plus" style="padding-right: 20px"></i>Adicionar</button>
                     </div>
                 </div>
             </form>
         </div>
         <div class='col' style='padding-top: 145px; padding-left: 60px'>
-            <form action="index.php?acao=contaNew" method="POST">
+            <form action="index.php?acao=contas" method="POST">
                 <input type="hidden" name="gerarSenha" value=<?php true ?>>
                 <button type="submit" class="btn btn-primary" style="margin: 0px">Gerar aleatória</button>
             </form>
