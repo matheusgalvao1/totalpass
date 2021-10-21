@@ -1,6 +1,9 @@
 <?php
     require("redirect.php");
     $erro = '';
+    $email = '';
+    $senha = '';
+    
     if(!isset($_SESSION)) 
     { 
         session_start(); 

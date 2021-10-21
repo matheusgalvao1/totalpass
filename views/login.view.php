@@ -23,10 +23,10 @@
                             </div>
                         <?php endif; ?>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Email *" value="" name="inputEmail"/>
+                            <input type="text" class="form-control" placeholder="Email *" value="<?= $email ?>" name="inputEmail"/>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Senha *" value="" name="inputSenha" />
+                            <input type="password" class="form-control" placeholder="Senha *" value="<?= $senha ?>" name="inputSenha" />
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btnSubmit" value="Login" name="enviarDados"/>
