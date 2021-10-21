@@ -60,3 +60,9 @@
     font-weight: 600;
     text-decoration: none;
 }
+
+.erro{
+    color: red;
+    margin: 0px;
+    padding: 0px;
+}

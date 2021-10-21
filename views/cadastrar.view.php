@@ -1,6 +1,3 @@
-<?php
-    include("../controllers/cadastrar.controller.php");
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,18 +18,22 @@
                     <h3>Cadastrar Usuário</h3>
                     <form action = "/index.php?acao=cadastrar" method="POST">
                         <div class="form-group">
+                            <p class = "erro"><?= $erroNome ?></p>
                             <input type="text" class="form-control" placeholder="Nome *" value="<?= $nome?>" name="inputNome"/>
                         </div>
                         <div class="form-group">
+                            <p class = "erro"><?= $erroSobrenome ?></p>
                             <input type="text" class="form-control" placeholder="Sobrenome *" value="<?= $sobrenome?>" name="inputSobrenome"/>
                         </div>
                         <div class="form-group">
+                            <p class = "erro"><?= $erroEmail ?></p>
                             <input type="email" class="form-control" placeholder="Email *" value="<?= $email?>" name="inputEmail"/>
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-control" placeholder="Senha *" value="<?= $senha?>" name="inputSenha"/>
                         </div>
                         <div class="form-group">
+                            <p class = "erro"><?= $erroSenha2 ?></p>
                             <input type="password" class="form-control" placeholder="Repita a senha *" value="<?= $senha2?>" name="inputSenha"/>
                         </div>
                         <div class="form-group">
