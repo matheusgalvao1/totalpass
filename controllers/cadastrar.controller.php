@@ -4,10 +4,10 @@
     $email = '';
     $senha = '';
     $senha2 = '';
-    $erroNome = 'F';
-    $erroSobrenome = 'F';
-    $erroEmail = 'F';
-    $erroSenha2 = 'F';
+    $erroNome = '';
+    $erroSobrenome = '';
+    $erroEmail = '';
+    $erroSenha2 = '';
 
     function checarValidade(){
         if (!preg_match("/^[a-zA-Z]*$/", $_POST['inputNome'])){
