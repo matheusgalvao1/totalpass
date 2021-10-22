@@ -5,8 +5,13 @@ include("controllers/geradorDeSenha.php");
 ?>
 
 <script type="text/javascript">
+    function gerarSenha(length) {
+        return 'sdsadaafads'
+    }
+
     function change() {
-        document.getElementById("senha").value = 'senhaGerada';
+        senha = gerarSenha(15);
+        document.getElementById("senha").value = senha;
     }
 </script>
 
@@ -51,7 +56,7 @@ if (!empty($_POST['novoNome'])) {
             }
         }
     }
-} else if (empty($_POST['novoNome']) && (!empty($_POST['novoLogin']) | !empty($_POST['novaSenha']))){
+} else if (empty($_POST['novoNome']) && (!empty($_POST['novoLogin']) | !empty($_POST['novaSenha']))) {
     $erroNew = 'Nome não pode ser vazio';
 }
 
