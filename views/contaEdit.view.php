@@ -25,12 +25,12 @@
                 <button type="button" class="btn btn-primary" style="margin: 0px" onclick="changeEdit()">Gerar Aleatória</button>
             </div>
             <div class="col" style="padding-top: 15px">
-                <button type="submit" class="btn btn-success" style="width: 210px"><i class="fa fa-check" style="padding-right: 20px"></i>Salvar</button>
+                <button type="submit" class="btn btn-success" style="width: 210px; font-size: 20px"><i class="fa fa-check" style="padding-right: 20px"></i>Salvar</button>
             </div>
         </form>
         <form action="index.php?acao=contas" method="POST" style="padding-top: 15px">
             <input type="hidden" name="excluir" value="excluir">
-            <button type="submit" class="btn btn-danger" style="width: 210px"><i class="fa fa-trash" style="margin-right: 20px"></i>Excluir</button>
+            <button type="submit" class="btn btn-danger" style="width: 210px; font-size: 20px"><i class="fa fa-trash" style="margin-right: 20px"></i>Excluir</button>
         </form>
     </div>
 <?php endif ?>

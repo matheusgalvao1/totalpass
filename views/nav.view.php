@@ -12,10 +12,11 @@
 </head>
 
 <body>
-    <ul class="nav justify-content-center border-bottom border-primary">
-        <li class="nav-item lg" style="margin: 15px;">
+    <ul class="nav justify-content-center">
+        <img src="./assets/logoWhite.svg" style="height: 50px; margin: 10px">
+        <!-- <li class="nav-item lg" style="margin: 15px;">
             <a class="nav-link" aria-current="page" href="" style="color: white; font-size: 20px"><i class="fa fa-list-ul" style="margin-right: 5px; color: white"></i>Contas</a>
-        </li>
+        </li> -->
         <li class="nav-item" style="margin: 15px">
             <a class="nav-link" href="logout.php" style="color: white; font-size: 20px;"><i class="fa fa-sign-out" style="margin-right: 5px; color: white"></i>Sair</a>
         </li>
