@@ -1,0 +1,1 @@
+Projeto desenvolvido para a disciplina de Desenvolvimento Web-servidor. Com foco na utilização de PHP, validação de campos e criação de uma sessão para manter o login do usuário. Decidimos por implementar um site responsável por gerenciar senhas de quais contas o usuário desejar, tendo a opção de gerar uma senha forte para a plataforma escolhida.
