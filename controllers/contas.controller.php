@@ -5,17 +5,6 @@ include("controllers/geradorDeSenha.php");
 ?>
 
 <script type="text/javascript">
-    function makeid(length) {
-        var result = '';
-        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        var charactersLength = characters.length;
-        for (var i = 0; i < length; i++) {
-            result += characters.charAt(Math.floor(Math.random() *
-                charactersLength));
-        }
-        return result;
-    }
-
     function change() {
         document.getElementById("senha").value = 'senhaGerada';
     }
@@ -40,12 +29,8 @@ if (!empty($_POST['selected'])) {
 
 $items = $_SESSION['contas'] ?? [];
 
-$erroNew = '';
-
 // NEW ----------------------------------------------------------------------------------------------------------------------------------------------------
-if (!empty($_POST['gerarSenha'])) {
-    $senhaAleatoria = gerarSenha();
-}
+$erroNew = '';
 
 if (!empty($_POST['novoNome'])) {
     if (preg_match('/\s/', $_POST['novoNome'])) {
@@ -66,6 +51,8 @@ if (!empty($_POST['novoNome'])) {
             }
         }
     }
+} else if (empty($_POST['novoNome']) && (!empty($_POST['novoLogin']) | !empty($_POST['novaSenha']))){
+    $erroNew = 'Nome não pode ser vazio';
 }
 
 function novaConta($nomeConta, $loginConta, $senhaConta)
