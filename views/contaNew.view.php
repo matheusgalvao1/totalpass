@@ -9,7 +9,7 @@
 </head>
 
 <div class="contaBox" style="border: 5px solid green;">
-    <h1>
+    <h1 style="color: white">
         <?php echo "<b>" . 'Nova Conta'  . "</b>" ?>
     </h1>
     <?php if ($erroNew != '') : ?>
@@ -20,14 +20,14 @@
 
     <form action="index.php?acao=contas" method="POST">
         <div class="form-group">
-            <label>Nome da conta</label>
+            <label class="label">Nome da conta</label>
             <input class="form-control" type="text" name="novoNome">
         </div>
         <div class="form-group">
-            <label>Login</label>
+            <label class="label">Login</label>
             <input class="form-control" type="text" name="novoLogin">
         </div>
-        <label>Senha</label>
+        <label class="label">Senha</label>
         <div class="input-group mb-3">
             <input class="form-control" type="text" name="novaSenha" id="senha">
             <button type="button" class="btn btn-primary" style="margin: 0px" onclick="change()">Gerar Aleatória</button>

@@ -20,7 +20,7 @@
 
 <form action="index.php?acao=contas" method="GET">
     <input type="hidden" name="busca" value="semBusca">
-    <button type="submit" class="btn btn-link" style="margin-bottom: 20px; padding: 0px;"><i class="fa fa-refresh" style="padding-right: 10px"></i>Recarregar todas as contas</button>
+    <button type="submit" class="btn btn-outline-light" style="margin-bottom: 20px"><i class="fa fa-refresh" style="padding-right: 10px"></i>Recarregar todas as contas</button>
 </form>
 
 <?php if ($items != ''): ?>

@@ -13,11 +13,11 @@
 
 <body>
     <ul class="nav justify-content-center border-bottom border-primary">
-        <li class="nav-item" style="margin: 10px">
-            <a class="nav-link" aria-current="page" href=""><i class="fa fa-list-ul" style="margin-right: 5px"></i>Contas</a>
+        <li class="nav-item lg" style="margin: 15px;">
+            <a class="nav-link" aria-current="page" href="" style="color: white; font-size: 20px"><i class="fa fa-list-ul" style="margin-right: 5px; color: white"></i>Contas</a>
         </li>
-        <li class="nav-item" style="margin: 10px">
-            <a class="nav-link" href="logout.php"><i class="fa fa-sign-out" style="margin-right: 5px"></i>Sair</a>
+        <li class="nav-item" style="margin: 15px">
+            <a class="nav-link" href="logout.php" style="color: white; font-size: 20px;"><i class="fa fa-sign-out" style="margin-right: 5px; color: white"></i>Sair</a>
         </li>
     </ul>
 </body>

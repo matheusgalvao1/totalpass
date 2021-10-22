@@ -11,15 +11,15 @@
 
 <?php if ($selected != '') : ?>
     <div class="contaBox">
-        <h1>
+        <h1 style="color: white">
             <?php echo "<b>" . $selected  . "</b>" ?>
         </h1>
         <form action="index.php?acao=contas" method="POST">
             <div class="form-group">
-                <label for="login">Login</label>
+                <label for="login" class="label">Login</label>
                 <input class="form-control" type="text" name="editarLogin" value="<?= $loginTemp ?>">
             </div>
-            <label for="senha">Senha</label>
+            <label for="senha" class="label">Senha</label>
             <div class="input-group mb-3">
                 <input class="form-control" type="text" name="editarSenha" id="senhaEdit" value="<?= $senhaTemp ?>">
                 <button type="button" class="btn btn-primary" style="margin: 0px" onclick="changeEdit()">Gerar Aleatória</button>
