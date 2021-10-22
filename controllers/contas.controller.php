@@ -20,6 +20,11 @@ include("controllers/geradorDeSenha.php");
         senha = gerarSenha();
         document.getElementById("senha").value = senha;
     }
+
+    function changeEdit() {
+        senha = gerarSenha();
+        document.getElementById("senhaEdit").value = senha;
+    }
 </script>
 
 <?php

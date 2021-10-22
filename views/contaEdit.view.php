@@ -19,14 +19,14 @@
                 <label for="login">Login</label>
                 <input class="form-control" type="text" name="editarLogin" value="<?= $loginTemp ?>">
             </div>
-            <div class="form-group">
-                <label for="senha">Senha</label>
-                <input class="form-control" type="text" name="editarSenha" value="<?= $senhaTemp ?>">
+            <label for="senha">Senha</label>
+            <div class="input-group mb-3">
+                <input class="form-control" type="text" name="editarSenha" id="senhaEdit" value="<?= $senhaTemp ?>">
+                <button type="button" class="btn btn-primary" style="margin: 0px" onclick="changeEdit()">Gerar Aleatória</button>
             </div>
             <div class="col" style="padding-top: 15px">
                 <button type="submit" class="btn btn-success" style="width: 210px"><i class="fa fa-check" style="padding-right: 20px"></i>Salvar</button>
             </div>
-
         </form>
         <form action="index.php?acao=contas" method="POST" style="padding-top: 15px">
             <input type="hidden" name="excluir" value="excluir">
