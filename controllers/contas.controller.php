@@ -47,29 +47,28 @@ if (!empty($_POST['selected'])) {
 $items = $_SESSION['contas'] ?? [];
 
 // NEW ----------------------------------------------------------------------------------------------------------------------------------------------------
+$n = '';
+$l = '';
+$s = '';
 $erroNew = '';
+if (isset($_POST['enviarNova'])){
+    $n = $_POST['novoNome'];
+    $l = $_POST['novoLogin'];
+    $s = $_POST['novaSenha'];
 
-if (!empty($_POST['novoNome'])) {
-    if (preg_match('/\s/', $_POST['novoNome'])) {
+    if ($n == '' || $n == ' '){
+        $erroNew = 'Nome não pode ser vazio';
+    } else if(preg_match('/\s/', $n)){
         $erroNew = 'Nome não deve conter espaços';
-    } else {
-        if (empty($_POST['novoLogin'])) {
-            $erroNew = 'Login não pode ser vazio';
-        } else {
-            if (empty($_POST['novaSenha'])) {
-                $erroNew = 'Senha não pode ser vazia';
-            } else {
-                $n = $_POST['novoNome'];
-                $l = $_POST['novoLogin'];
-                $s = $_POST['novaSenha'];
-                $items = array_merge($items, novaConta($n, $l, $s));
-                $_SESSION['contas'] = $items;
-                header("Location: /");
-            }
-        }
+    } else if($l == '' || $l == ' '){
+        $erroNew = 'Login não pode ser vazio';
+    } else if($s == '' || $s == ' '){
+        $erroNew = 'Senha não pode ser vazia';
+    } else{
+        $items = array_merge($items, novaConta($n, $l, $s));
+        $_SESSION['contas'] = $items;
+        header("Location: /");
     }
-} else if (empty($_POST['novoNome']) && (!empty($_POST['novoLogin']) | !empty($_POST['novaSenha']))) {
-    $erroNew = 'Nome não pode ser vazio';
 }
 
 function novaConta($nomeConta, $loginConta, $senhaConta)
@@ -101,14 +100,20 @@ $senhaTemp = $items[$selected]['senha'] ?? '';
 $erroEditar = '';
 
 // Editar
-if (!empty($_POST['editarLogin']) && !empty($_POST['editarSenha'])) {
+if (isset($_POST['enviarEdit'])) {
     $items[$selected]['login'] = $_POST['editarLogin'];
     $items[$selected]['senha'] = $_POST['editarSenha'];
     $loginTemp = $_POST['editarLogin'];
     $senhaTemp = $_POST['editarSenha'];
-    $_SESSION['contas'] = $items;
-    $selected = '';
-    $_SESSION['contaSelecionada'] = $selected;
+    if ($loginTemp == '' || $loginTemp == ' '){
+        $erroEditar = 'Login inválido!';
+    } else if($senhaTemp == '' || $senhaTemp == ' '){
+        $erroEditar = 'Senha inválida!';
+    } else{
+        $_SESSION['contas'] = $items;
+        $selected = '';
+        $_SESSION['contaSelecionada'] = $selected;
+    }
 }
 
 // Excluir

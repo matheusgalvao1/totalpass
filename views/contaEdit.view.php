@@ -15,6 +15,7 @@
             <?php echo "<b>" . $selected  . "</b>" ?>
         </h1>
         <form action="index.php?acao=contas" method="POST">
+            <p style="color:red; padding:0px; margin:0px;"><?= $erroEditar ?></p>
             <div class="form-group">
                 <label for="login" class="label">Login</label>
                 <input class="form-control" type="text" name="editarLogin" value="<?= $loginTemp ?>">
@@ -25,7 +26,7 @@
                 <button type="button" class="btn btn-primary" style="margin: 0px" onclick="changeEdit()">Gerar Aleatória</button>
             </div>
             <div class="col" style="padding-top: 15px">
-                <button type="submit" class="btn btn-success" style="width: 210px; font-size: 20px"><i class="fa fa-check" style="padding-right: 20px"></i>Salvar</button>
+                <button name ="enviarEdit" type="submit" class="btn btn-success" style="width: 210px; font-size: 20px"><i class="fa fa-check" style="padding-right: 20px"></i>Salvar</button>
             </div>
         </form>
         <form action="index.php?acao=contas" method="POST" style="padding-top: 15px">
