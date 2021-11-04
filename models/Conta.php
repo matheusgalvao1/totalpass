@@ -6,4 +6,10 @@ class Conta{
     private $senha;
     private $idConta;
     private $idUsuario;
+
+    public function __get($propriedade)
+    {
+        return $this->$propriedade;
+    }
+
 }
