@@ -12,4 +12,9 @@ class Conta{
         return $this->$propriedade;
     }
 
+    public function __set($propriedade, $valor)
+    {
+        $this->$propriedade = $valor;
+    }
+
 }
