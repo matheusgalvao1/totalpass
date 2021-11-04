@@ -1,4 +1,5 @@
 <?php
+  require 'vendor/autoload.php';
   session_start();
   $acao = $_GET['acao'] ?? 'erro';
   if (empty($_SESSION['logado']) || !$_SESSION['logado']){

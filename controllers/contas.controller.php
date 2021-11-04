@@ -28,6 +28,10 @@ include("controllers/geradorDeSenha.php");
 </script>
 
 <?php
+
+$bdFuncoes = new BDfuncoes();
+
+
 // JA TAVA NO CONTAS ----------------------------------------------------------------------------------------------------------------------------------------------------
 function checarBusca()
 {
@@ -51,22 +55,31 @@ $n = '';
 $l = '';
 $s = '';
 $erroNew = '';
-if (isset($_POST['enviarNova'])){
+if (isset($_POST['enviarNova'])) {
     $n = $_POST['novoNome'];
     $l = $_POST['novoLogin'];
     $s = $_POST['novaSenha'];
 
-    if ($n == '' || $n == ' '){
+    if ($n == '' || $n == ' ') {
         $erroNew = 'Nome não pode ser vazio';
-    } else if(preg_match('/\s/', $n)){
+    } else if (preg_match('/\s/', $n)) {
         $erroNew = 'Nome não deve conter espaços';
-    } else if($l == '' || $l == ' '){
+    } else if ($l == '' || $l == ' ') {
         $erroNew = 'Login não pode ser vazio';
-    } else if($s == '' || $s == ' '){
+    } else if ($s == '' || $s == ' ') {
         $erroNew = 'Senha não pode ser vazia';
-    } else{
+    } else {
         $items = array_merge($items, novaConta($n, $l, $s));
         $_SESSION['contas'] = $items;
+        // ADD no bd
+        /*
+        $conta = new Conta();
+        $conta->nome = $n;
+        $conta->login = $l;
+        $conta->senha = $s;
+        $bdFuncoes->insert($conta);
+        */
+        //
         header("Location: /");
     }
 }
@@ -105,11 +118,11 @@ if (isset($_POST['enviarEdit'])) {
     $items[$selected]['senha'] = $_POST['editarSenha'];
     $loginTemp = $_POST['editarLogin'];
     $senhaTemp = $_POST['editarSenha'];
-    if ($loginTemp == '' || $loginTemp == ' '){
+    if ($loginTemp == '' || $loginTemp == ' ') {
         $erroEditar = 'Login inválido!';
-    } else if($senhaTemp == '' || $senhaTemp == ' '){
+    } else if ($senhaTemp == '' || $senhaTemp == ' ') {
         $erroEditar = 'Senha inválida!';
-    } else{
+    } else {
         $_SESSION['contas'] = $items;
         $selected = '';
         $_SESSION['contaSelecionada'] = $selected;
