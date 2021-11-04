@@ -1,0 +1,15 @@
+{
+    "name": "mairo/totalpass",
+    "authors": [
+        {
+            "name": "Mairon Lucas",
+            "email": "mairon@alunos.utfpr.edu.br"
+        }
+    ],
+    "autoload": {
+        "classmap":["./"]
+    },
+    "require": {
+        "pecee/simple-router": "4.3.7.2"
+    }
+}
