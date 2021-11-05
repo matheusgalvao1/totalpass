@@ -77,7 +77,7 @@ if (isset($_POST['enviarNova'])) {
         $conta->nome = $n;
         $conta->login = $l;
         $conta->senha = $s;
-        $bdFuncoes->insert($conta);
+        $bdFuncoes->insertConta($conta);
         */
         //
         header("Location: /");

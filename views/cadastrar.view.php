@@ -16,24 +16,24 @@
             <div class="d-flex justify-content-center">
                 <div class="col-md-6 cad-form-2" style="border-radius: 20px;">
                     <h3>Cadastrar Usuário</h3>
-                    <form action = "index.php?acao=cadastrar" method="POST">
+                    <form action = "/enviarCadastro" method="POST">
                         <div class="form-group">
-                            <p class = "erro"><?= $erroNome ?></p>
+                            <p class = "erro"><?= $erros['erroNome'] ?></p>
                             <input type="text" class="form-control" placeholder="Nome *" value="<?= $nome?>" name="inputNome"/>
                         </div>
                         <div class="form-group">
-                            <p class = "erro"><?= $erroSobrenome ?></p>
+                            <p class = "erro"><?= $erros['erroSobrenome'] ?></p>
                             <input type="text" class="form-control" placeholder="Sobrenome *" value="<?= $sobrenome?>" name="inputSobrenome"/>
                         </div>
                         <div class="form-group">
-                            <p class = "erro"><?= $erroEmail ?></p>
+                            <p class = "erro"><?= $erros['erroEmail'] ?></p>
                             <input type="email" class="form-control" placeholder="Email *" value="<?= $email?>" name="inputEmail"/>
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-control" placeholder="Senha *" value="<?= $senha?>" name="inputSenha"/>
                         </div>
                         <div class="form-group">
-                            <p class = "erro"><?= $erroSenha2 ?></p>
+                            <p class = "erro"><?= $erros['erroSenha'] ?></p>
                             <input type="password" class="form-control" placeholder="Repita a senha *" value="<?= $senha2?>" name="inputSenha2"/>
                         </div>
                         <div class="form-group">

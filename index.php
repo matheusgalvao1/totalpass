@@ -16,5 +16,7 @@
   Router::get('/', 'IndexController@index');
   Router::get('/Login', 'LoginController@carregarTela');
   Router::post('/enviarLogin', 'LoginController@efetuarLogin');
+  Router::get('/Cadastrar', 'CadastrarController@carregarTela');
+  Router::post('/enviarCadastro', 'CadastrarController@validarCadastro');
   Router::start();
 ?>

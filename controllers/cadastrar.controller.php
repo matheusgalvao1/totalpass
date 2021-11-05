@@ -1,60 +1,68 @@
 <?php
-    include 'controllers/redirect.php';
-    $nome = '';
-    $sobrenome = '';
-    $email = '';
-    $senha = '';
-    $senha2 = '';
-    $erroNome = '';
-    $erroSobrenome = '';
-    $erroEmail = '';
-    $erroSenha2 = '';
-
-    if (!empty($_POST['enviarCadastro'])){
-        $nome = $_POST['inputNome'];
-        $sobrenome = $_POST['inputSobrenome'];
-        $email = $_POST['inputEmail'];
-        $senha = $_POST['inputSenha'];
-        $senha2 = $_POST['inputSenha2'];
+    function validarDadosCadastro($nome, $sobrenome, $email, $senha, $senha2, &$erros){
         $valido = true;
-
-        if ((!preg_match("/^[a-zA-Z ]*$/", $_POST['inputNome']) || $nome == '') || $nome == ' '){
-            $erroNome = 'Nome inválido!';
+        if ((!preg_match("/^[a-zA-Z ]*$/", $nome) || $nome == '') || $nome == ' '){
+            $erros['erroNome'] = 'Nome inválido!';
             $valido = false;
         }
-        if (!preg_match("/^[a-zA-Z]*$/", $_POST['inputSobrenome']) || $sobrenome == ''){
-            $erroSobrenome = 'Sobrenome inválido!';
+        if (!preg_match("/^[a-zA-Z]*$/", $sobrenome) || $sobrenome == ''){
+            $erros['erroSobrenome'] = 'Sobrenome inválido!';
             $valido = false;
         }
         if (!filter_input(INPUT_POST, 'inputEmail', FILTER_VALIDATE_EMAIL)){
-            $erroEmail = 'Email inválido!';
+            $erros['erroEmail'] = 'Email inválido!';
             $valido = false;
         }
         if ($senha != $senha2){
-            $erroSenha2 = 'As senhas precisam ser iguais!';
+            $erros['erroSenha'] = 'As senhas precisam ser iguais!';
             $valido = false;
         } else if ($senha == ''){
-            $erroSenha2 = 'Uma senha precisa ser informada!';
+            $erros['erroSenha'] = 'Uma senha precisa ser informada!';
             $valido = false;
         }
+        return $valido;
+    }
 
-        if ($valido){
-            $usuarios = $_SESSION['usuarios'] ?? [];
-            $usuarios = array_merge($usuarios, novoUser($nome, $sobrenome, $email, password_hash($senha2, PASSWORD_DEFAULT)));
-            $_SESSION['usuarios'] = $usuarios;
-            redirect('index.php');
+    class CadastrarController{
+        public function carregarTela(){
+            $nome = '';
+            $sobrenome = '';
+            $email = '';
+            $senha = '';
+            $senha2 = '';
+            $erros = [
+                'erroNome' => '',
+                'erroSobrenome' =>'',
+                'erroEmail' => '',
+                'erroSenha' => ''
+            ];
+            require("views/cadastrar.view.php");
+        }
+
+        public function validarCadastro(){
+            $nome = $_POST['inputNome'];
+            $sobrenome = $_POST['inputSobrenome'];
+            $email = $_POST['inputEmail'];
+            $senha = $_POST['inputSenha'];
+            $senha2 = $_POST['inputSenha2'];
+            $erros = [
+                'erroNome' => '',
+                'erroSobrenome' =>'',
+                'erroEmail' => '',
+                'erroSenha' => ''
+            ];
+
+            if(validarDadosCadastro($nome, $sobrenome, $email, $senha, $senha2, $erros)){
+                $user = new Usuario();
+                $bdF = new BDfuncoes();
+                $user->nome = $nome;
+                $user->sobrenome = $sobrenome;
+                $user->email = $email;
+                $user->senha = password_hash($senha2, PASSWORD_DEFAULT);
+                $bdF->insertUsuario($user);
+                header('Location: /Login');
+            } else{
+                require("views/cadastrar.view.php");
+            }
         }
     }
-
-    function novoUser($nome, $sobrenome, $email, $senha){
-        $array = [
-            $email => [
-                'nome' => $nome,
-                'sobrenome' => $sobrenome,
-                'senha' => $senha
-            ]
-        ];
-        return $array;
-    }
-
-    include("views/cadastrar.view.php");

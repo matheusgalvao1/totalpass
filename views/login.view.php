@@ -35,7 +35,7 @@
                             <input type="submit" class="btnSubmit" value="Login" name="enviarDados" />
                         </div>
                         <div class="form-group">
-                            <a href="index.php?acao=cadastrar" class="ForgetPwd" value="Login">
+                            <a href="/Cadastrar" class="ForgetPwd" value="Login">
                                 <bolder style="font-size: 20px">Cadastrar</bolder>
                             </a>
                             <!-- <input type="submit" class="btnSubmit" value="Cadastrar" name="cadastrarUsuario"/> -->
