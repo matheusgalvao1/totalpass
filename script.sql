@@ -1,4 +1,5 @@
 CREATE DATABASE totalpass;
+USE DATABASE totalpass;
 
 CREATE TABLE Usuario (
 IDUsuario INTEGER PRIMARY KEY,

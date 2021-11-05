@@ -19,7 +19,7 @@
                 <div class="col-md-6 login-form-2" style="border-radius: 20px;">
                     <h3><img src="./assets/logoWhite.svg" style="height: 70px;"></h3>
                     <h3>Login</h3>
-                    <form action="index.php?acao=login" method="POST">
+                    <form action="/enviarLogin" method="POST">
                         <?php if ($erro != '') : ?>
                             <div style="color: red;">
                                 <strong><?= $erro ?></strong>

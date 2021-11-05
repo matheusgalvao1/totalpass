@@ -1,6 +1,7 @@
 <?php
   require 'vendor/autoload.php';
-  session_start();
+  use Pecee\SimpleRouter\SimpleRouter as Router;
+  /*
   $acao = $_GET['acao'] ?? 'erro';
   if (empty($_SESSION['logado']) || !$_SESSION['logado']){
     if ($acao == 'cadastrar'){
@@ -11,4 +12,9 @@
   } else{
     require("controllers/home.controller.php");
   }
+  */
+  Router::get('/', 'IndexController@index');
+  Router::get('/Login', 'LoginController@carregarTela');
+  Router::post('/enviarLogin', 'LoginController@efetuarLogin');
+  Router::start();
 ?>
