@@ -1,26 +1,30 @@
 <?php
     function validarDadosCadastro($nome, $sobrenome, $email, $senha, $senha2, &$erros){
-        $valido = true;
+        $bf = new BDfuncoes();
         if ((!preg_match("/^[a-zA-Z ]*$/", $nome) || $nome == '') || $nome == ' '){
             $erros['erroNome'] = 'Nome inválido!';
-            $valido = false;
+            return false;
         }
         if (!preg_match("/^[a-zA-Z]*$/", $sobrenome) || $sobrenome == ''){
             $erros['erroSobrenome'] = 'Sobrenome inválido!';
-            $valido = false;
+            return false;
         }
         if (!filter_input(INPUT_POST, 'inputEmail', FILTER_VALIDATE_EMAIL)){
             $erros['erroEmail'] = 'Email inválido!';
-            $valido = false;
+            return false;
+        }
+        if ($bf->buscarPorEmail($email) == false){
+            $erros['erroEmail'] = 'Email já cadastrado!';
+            return false;
         }
         if ($senha != $senha2){
             $erros['erroSenha'] = 'As senhas precisam ser iguais!';
-            $valido = false;
+            return false;
         } else if ($senha == ''){
             $erros['erroSenha'] = 'Uma senha precisa ser informada!';
-            $valido = false;
+            return false;
         }
-        return $valido;
+        return true;
     }
 
     class CadastrarController{

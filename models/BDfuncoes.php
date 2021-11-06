@@ -28,7 +28,9 @@ class BDfuncoes
         $query = $bd->prepare("SELECT * FROM usuario WHERE :email = email");
         $query->bindParam(':email', $email);
         $query->execute();
-        $user = $query->fetchObject('Usuario');
-        return $user;
+        if ($query->rowCount() > 0){
+            return $query->fetchObject('Usuario');
+        }
+        return false;
     }
 }
