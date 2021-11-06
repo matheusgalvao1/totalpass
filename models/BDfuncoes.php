@@ -22,4 +22,13 @@ class BDfuncoes
         $query->bindParam(':senha', $user->senha);
         $query->execute();
     }
+
+    public function buscarPorEmail($email){
+        $bd = Conexao::get();
+        $query = $bd->prepare("SELECT * FROM usuario WHERE :email = email");
+        $query->bindParam(':email', $email);
+        $query->execute();
+        $user = $query->fetchObject('Usuario');
+        return $user;
+    }
 }
