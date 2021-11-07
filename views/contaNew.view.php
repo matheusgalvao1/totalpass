@@ -17,13 +17,13 @@
     <h1 style="color: white">
         <?php echo "<b>" . 'Nova Conta'  . "</b>" ?>
     </h1>
-    <?php if ($erroNew != '') : ?>
+    <?php if ($erroAdd != '') : ?>
         <div style="color: red;">
-            <strong><?= $erroNew ?></strong>
+            <strong><?= $erroAdd ?></strong>
         </div>
     <?php endif; ?>
 
-    <form action="index.php?acao=contas" method="POST">
+    <form action="/adicionarConta" method="POST">
         <div class="form-group">
             <label class="label">Nome da conta</label>
             <input class="form-control" type="text" name="novoNome" value="<?= $n?>">

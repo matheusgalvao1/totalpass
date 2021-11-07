@@ -71,13 +71,11 @@ if (isset($_POST['enviarNova'])) {
         $items = array_merge($items, novaConta($n, $l, $s));
         $_SESSION['contas'] = $items;
         // ADD no bd
-        /*
         $conta = new Conta();
         $conta->nome = $n;
         $conta->login = $l;
         $conta->senha = $s;
         $bdFuncoes->insertConta($conta);
-        */
         //
         header("Location: /");
     }

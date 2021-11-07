@@ -5,10 +5,11 @@ class BDfuncoes
     public function insertConta($conta)
     {
         $bd = Conexao::get();
-        $query = $bd->prepare("INSERT INTO conta(nome, login, senha) VALUES(:nome, :login, :senha)");
+        $query = $bd->prepare("INSERT INTO conta(nome, login, senha, idusuario) VALUES(:nome, :login, :senha, :idusuario) ");
         $query->bindParam(':nome', $conta->nome);
         $query->bindParam(':login', $conta->login);
         $query->bindParam(':senha', $conta->senha);
+        $query->bindParam(':idusuario', $_SESSION['idUsuario']);
         $query->execute();
     }
 
