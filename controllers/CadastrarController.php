@@ -13,10 +13,6 @@
             $erros['erroEmail'] = 'Email inválido!';
             return false;
         }
-        if ($bf->buscarPorEmail($email) == false){
-            $erros['erroEmail'] = 'Email já cadastrado!';
-            return false;
-        }
         if ($senha != $senha2){
             $erros['erroSenha'] = 'As senhas precisam ser iguais!';
             return false;

@@ -1,5 +1,4 @@
 <?php
-include("controllers/redirect.php");
 include("./models/contas.model.php");
 include("controllers/geradorDeSenha.php");
 ?>
