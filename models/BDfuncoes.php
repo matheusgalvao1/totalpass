@@ -9,7 +9,7 @@ class BDfuncoes
         $query->bindParam(':nome', $conta->nome);
         $query->bindParam(':login', $conta->login);
         $query->bindParam(':senha', $conta->senha);
-        $query->bindParam(':idusuario', $conta->idUsuario);
+        $query->bindParam(':idusuario', $conta->idusuario);
         $query->execute();
     }
 
@@ -36,7 +36,7 @@ class BDfuncoes
     public function buscarContas($id){
         $bd = Conexao::get();
         $query = $bd->prepare("SELECT * FROM conta WHERE :idusuario = idusuario");
-        $query->bindParam(':email', $id);
+        $query->bindParam(':idusuario', $id);
         $query->execute();
         $listContas = $query->fetchAll(PDO::FETCH_CLASS, 'Conta');
         return $listContas;

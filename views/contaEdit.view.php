@@ -1,8 +1,3 @@
-<?php
-    if(!isset($_SESSION) || $_SESSION['logado'] == false){
-        header('Location: /');
-    }
-?>
 <!DOCTYPE html>
 <html lang="en">
 

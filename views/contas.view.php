@@ -1,8 +1,3 @@
-<?php
-    if(!isset($_SESSION) || $_SESSION['logado'] == false){
-        header('Location: /');
-    }
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,11 +22,11 @@
     <button type="submit" class="btn btn-outline-light" style="margin-bottom: 20px"><i class="fa fa-refresh" style="padding-right: 10px"></i>Recarregar todas as contas</button>
 </form>
 
-<?php if ($contas != ''): ?>
-        <?php foreach ($contas as $conta => $nome) : ?>
+<?php if ($contas): ?>
+        <?php foreach ($contas as $conta) : ?>
             <form action="index.php?acao=contas" method="POST">
-                <input type="hidden" name="selected" value=<?php echo $nome ?>>
-                <button type="submit" class="btn btn-primary" style="width: 400px; margin-bottom: 5px; font-size: 20px"><?php echo $nome; ?></button>
+                <input type="hidden" name="selected" value=<?php echo $conta->nome ?>>
+                <button type="submit" class="btn btn-primary" style="width: 400px; margin-bottom: 5px; font-size: 20px"><?php echo $conta->nome; ?></button>
             </form>
         <?php endforeach ?>
 <?php endif ?>

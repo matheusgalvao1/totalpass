@@ -1,6 +1,8 @@
 <?php
-    if(!isset($_SESSION) || $_SESSION['logado'] == false){
-        header('Location: /');
+    if(!(session_status() === PHP_SESSION_ACTIVE))
+        session_start();
+    if(empty($_SESSION['logado']) || $_SESSION['logado'] == false){
+        header('Location: /Login');
     }
 ?>
 
@@ -18,11 +20,9 @@
     <h1 style="color: white">
         <?php echo "<b>" . 'Nova Conta'  . "</b>" ?>
     </h1>
-    <?php if ($erroAdd != '') : ?>
         <div style="color: red;">
             <strong><?= $erroAdd ?></strong>
         </div>
-    <?php endif; ?>
 
     <form action="/adicionarConta" method="POST">
         <div class="form-group">

@@ -6,7 +6,7 @@ function validarDadosAdd($nome, $login, $senha, &$erroAdd)
         return false;
     }
     if ($login == '' || $login == ' ') {
-        $erroAdd = 'Email inválido!';
+        $erroAdd = 'Login inválido!';
         return false;
     }
     if ($senha == '' || $senha == ' ') {
@@ -33,33 +33,34 @@ class ContasController
         // Edit conta
 
         // Buscar contas
-        $contas = $bdF->buscarContas($_SESSION['idUsuario']) ?? [];
+        $contas = $bdF->buscarContas($_SESSION['idUsuario']);
+        
         require("views/home.view.php");
     }
     
     public function validarAdicionar()
     {
-        $nome = $_POST['novoNome'];
-        $login = $_POST['novoLogin'];
-        $senha = $_POST['novaSenha'];
+        $novoNome = $_POST['novoNome'];
+        $novoLogin = $_POST['novoLogin'];
+        $novaSenha = $_POST['novaSenha'];
         $erroAdd = '';
 
-        if (validarDadosAdd($nome, $login, $senha, $erroAdd)) {
+        if (validarDadosAdd($novoNome, $novoLogin, $novaSenha, $erroAdd)) {
             if(!isset($_SESSION)) 
             { 
                 session_start();
             }
             $bdF = new BDfuncoes();
             $conta = new Conta();
-            $conta->nome = $nome;
-            $conta->login = $login;
-            $conta->senha = $senha;
+            $conta->nome = $novoNome;
+            $conta->login = $novoLogin;
+            $conta->senha = $novaSenha;
             $conta->idusuario = $_SESSION['idUsuario'];
             $bdF->insertConta($conta);
-            header('Location: /');
-        } 
-        require("views/contaNew.view.php");
-        
+            header('Location: /Home');
+        } else{
+            require("views/home.view.php");
+        }
     }
 
     public function buscarContas() {
