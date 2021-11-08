@@ -1,28 +1,5 @@
-<script type="text/javascript">
-    function gerarSenha() {
-        var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        var passwordLength = 15;
-        var password = "";
-        for (var i = 0; i <= passwordLength; i++) {
-            var randomNumber = Math.floor(Math.random() * chars.length);
-            password += chars.substring(randomNumber, randomNumber + 1);
-        }
-        return password;
-    }
-
-    function change() {
-        senha = gerarSenha();
-        document.getElementById("senha").value = senha;
-    }
-
-    function changeEdit() {
-        senha = gerarSenha();
-        document.getElementById("senhaEdit").value = senha;
-    }
-</script>
-
 <?php
-function validarDadosAdd($nome, $login, $senha)
+function validarDadosAdd($nome, $login, $senha, &$erroAdd)
 {
     if ($nome == '' || $nome == ' ') {
         $erroAdd = 'Nome não pode ser vazio!';
@@ -43,10 +20,20 @@ class ContasController
 {
     public function carregarHome()
     {
+        $bdF = new BDfuncoes();
+        if(!isset($_SESSION)) 
+        { 
+            session_start();
+        }
+        // Add conta
         $novoNome = '';
         $novoLogin = '';
         $novaSenha = '';
         $erroAdd = '';
+        // Edit conta
+
+        // Buscar contas
+        $contas = $bdF->buscarContas($_SESSION['idUsuario']) ?? [];
         require("views/home.view.php");
     }
     
@@ -57,7 +44,7 @@ class ContasController
         $senha = $_POST['novaSenha'];
         $erroAdd = '';
 
-        if (validarDadosAdd($nome, $login, $senha)) {
+        if (validarDadosAdd($nome, $login, $senha, $erroAdd)) {
             if(!isset($_SESSION)) 
             { 
                 session_start();
@@ -67,12 +54,12 @@ class ContasController
             $conta->nome = $nome;
             $conta->login = $login;
             $conta->senha = $senha;
-            $conta->idUsuario = $_SESSION['idUsuario'];
+            $conta->idusuario = $_SESSION['idUsuario'];
             $bdF->insertConta($conta);
             header('Location: /');
-        } else {
-            require("views/contaNew.view.php");
-        }
+        } 
+        require("views/contaNew.view.php");
+        
     }
 
     public function buscarContas() {

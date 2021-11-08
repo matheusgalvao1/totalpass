@@ -3,6 +3,30 @@
         header('Location: /');
     }
 ?>
+
+<script type="text/javascript">
+    function gerarSenha() {
+        var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var passwordLength = 15;
+        var password = "";
+        for (var i = 0; i <= passwordLength; i++) {
+            var randomNumber = Math.floor(Math.random() * chars.length);
+            password += chars.substring(randomNumber, randomNumber + 1);
+        }
+        return password;
+    }
+
+    function change() {
+        senha = gerarSenha();
+        document.getElementById("senha").value = senha;
+    }
+
+    function changeEdit() {
+        senha = gerarSenha();
+        document.getElementById("senhaEdit").value = senha;
+    }
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 

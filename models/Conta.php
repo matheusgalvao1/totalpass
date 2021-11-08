@@ -4,8 +4,8 @@ class Conta{
     private $nome;
     private $login;
     private $senha;
-    private $idConta;
-    private $idUsuario;
+    private $idconta;
+    private $idusuario;
 
     public function __get($propriedade)
     {

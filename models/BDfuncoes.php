@@ -32,4 +32,13 @@ class BDfuncoes
         $user = $query->fetchObject('Usuario');
         return $user;
     }
+
+    public function buscarContas($id){
+        $bd = Conexao::get();
+        $query = $bd->prepare("SELECT * FROM conta WHERE :idusuario = idusuario");
+        $query->bindParam(':email', $id);
+        $query->execute();
+        $listContas = $query->fetchAll(PDO::FETCH_CLASS, 'Conta');
+        return $listContas;
+    }
 }
