@@ -42,6 +42,7 @@ class ContasController
             $conta->login = $login;
             $conta->senha = $senha;
             $bdF->insertConta($conta);
+            header('Location: /');
         } else {
             require("views/contaNew.view.php");
         }

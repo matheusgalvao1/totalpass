@@ -4,6 +4,10 @@ class BDfuncoes
 {
     public function insertConta($conta)
     {
+        if(!isset($_SESSION)) 
+        { 
+            session_start();
+        }
         $bd = Conexao::get();
         $query = $bd->prepare("INSERT INTO conta(nome, login, senha, idusuario) VALUES(:nome, :login, :senha, :idusuario) ");
         $query->bindParam(':nome', $conta->nome);

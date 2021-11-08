@@ -25,7 +25,7 @@
                 $user = $bf->buscarPorEmail($email);
                 if($user){
                     if(password_verify($senha, $user->senha)){
-                        $_SESSION['idUsuario'] = $user->idUsuario;
+                        $_SESSION['idUsuario'] = $user->idusuario;
                         $_SESSION['logado'] = true;
                         header('Location: /');
                     } 
