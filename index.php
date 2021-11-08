@@ -15,10 +15,10 @@
   */
   Router::get('/', 'IndexController@index');
   Router::get('/Login', 'LoginController@carregarTela');
-  Router::post('/enviarLogin', 'LoginController@efetuarLogin');
+  Router::get('/Home', 'ContasController@carregarHome');
   Router::get('/Cadastrar', 'CadastrarController@carregarTela');
+  Router::post('/enviarLogin', 'LoginController@efetuarLogin');
   Router::post('/adicionarConta', 'ContasController@validarAdicionar');
-  Router::post('/contaNew', 'ContasController@carregarContaNew');
   Router::post('/enviarCadastro', 'CadastrarController@validarCadastro');
   Router::start();
 ?>

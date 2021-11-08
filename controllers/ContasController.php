@@ -19,18 +19,15 @@ function validarDadosAdd($nome, $login, $senha)
 
 class ContasController
 {
-    public function carregarContaNew(){
+    public function carregarHome()
+    {
         $novoNome = '';
         $novoLogin = '';
         $novaSenha = '';
         $erroAdd = '';
-        require("views/contaNew.view.php");
+        require("views/home.view.php");
     }
-
-    public function carregarContas(){
-        
-    }
-
+    
     public function validarAdicionar()
     {
         $nome = $_POST['novoNome'];

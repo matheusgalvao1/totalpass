@@ -26,15 +26,15 @@
     <form action="/adicionarConta" method="POST">
         <div class="form-group">
             <label class="label">Nome da conta</label>
-            <input class="form-control" type="text" name="novoNome" value="<?= $n?>">
+            <input class="form-control" type="text" name="novoNome" value="<?= $novoNome?>">
         </div>
         <div class="form-group">
             <label class="label">Login</label>
-            <input class="form-control" type="text" name="novoLogin" value="<?= $l?>">
+            <input class="form-control" type="text" name="novoLogin" value="<?= $novoLogin?>">
         </div>
         <label class="label">Senha</label>
         <div class="input-group mb-3">
-            <input class="form-control" type="text" name="novaSenha" id="senha" value="<?= $s?>">
+            <input class="form-control" type="text" name="novaSenha" id="senha" value="<?= $novaSenha?>">
             <button type="button" class="btn btn-primary" style="margin: 0px" onclick="change()">Gerar Aleatória</button>
         </div>
         <button name="enviarNova" type="submit" class="btn btn-success btn-lg" style="font-size:25px; font-weight: bold;"><i class="fa fa-plus" style="padding-right: 20px"></i>Adicionar</button>

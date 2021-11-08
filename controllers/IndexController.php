@@ -7,7 +7,12 @@ class IndexController{
         if (empty($_SESSION['logado']) || !$_SESSION['logado']){
             header("Location: /Login");
         } else{
-            require("controllers/home.controller.php");
+            $novoNome = '';
+            $novoLogin = '';
+            $novaSenha = '';
+            $erroAdd = '';
+            require("views/home.view.php");
+            
         }
     }
 }

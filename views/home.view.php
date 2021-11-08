@@ -17,7 +17,9 @@
     <link rel="stylesheet" href="css/contaBox.css">
     <link rel="stylesheet" href="css/label.css">
 </head>
-
+<?php
+require('nav.view.php');
+?>
 <body class="container bg-dark">
     <div class="container" style="padding-top: 30px; padding-bottom: 30px;">
         <div class="row">
