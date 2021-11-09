@@ -41,4 +41,26 @@ class BDfuncoes
         $listContas = $query->fetchAll(PDO::FETCH_CLASS, 'Conta');
         return $listContas;
     }
+
+    public function buscarContaNome($nomeConta){
+        $bd = Conexao::get();
+        $query = $bd->prepare("SELECT * FROM conta WHERE (:nome LIKE nome)");
+        $query->bindParam(':nome', $nomeConta);
+        $query->execute();
+        $listContas = $query->fetchAll(PDO::FETCH_CLASS, 'Conta');
+        return $listContas;
+    } 
+
+    public function buscarContaID($idconta){
+        $bd = Conexao::get();
+        $query = $bd->prepare("SELECT * FROM conta WHERE :idconta = idconta");
+        $query->bindParam(':idconta', $idconta);
+        $query->execute();
+        $conta = $query->fetchObject('Conta');
+        return $conta;
+    } 
+
+    public function editarConta($idusuario, $idconta){
+
+    }
 }

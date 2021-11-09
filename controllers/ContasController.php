@@ -16,28 +16,31 @@ function validarDadosAdd($nome, $login, $senha, &$erroAdd)
     return true;
 }
 
+
 class ContasController
 {
     public function carregarHome()
     {
         $bdF = new BDfuncoes();
-        if(!isset($_SESSION)) 
-        { 
+        if (!isset($_SESSION)) {
             session_start();
         }
+        // Buscar contas
+        $contas = $bdF->buscarContas($_SESSION['idUsuario']);
         // Add conta
+        $contaSelecionada = $bdF->buscarContaID($_SESSION['contaSelecionada']) ?? '';
         $novoNome = '';
         $novoLogin = '';
         $novaSenha = '';
         $erroAdd = '';
         // Edit conta
-
-        // Buscar contas
-        $contas = $bdF->buscarContas($_SESSION['idUsuario']);
-        
+        $editNome = '';
+        $editLogin = '';
+        $editSenha = '';
+        $erroEditar = '';
         require("views/home.view.php");
     }
-    
+
     public function validarAdicionar()
     {
         $novoNome = $_POST['novoNome'];
@@ -46,8 +49,7 @@ class ContasController
         $erroAdd = '';
 
         if (validarDadosAdd($novoNome, $novoLogin, $novaSenha, $erroAdd)) {
-            if(!isset($_SESSION)) 
-            { 
+            if (!isset($_SESSION)) {
                 session_start();
             }
             $bdF = new BDfuncoes();
@@ -58,12 +60,17 @@ class ContasController
             $conta->idusuario = $_SESSION['idUsuario'];
             $bdF->insertConta($conta);
             header('Location: /Home');
-        } else{
+        } else {
             require("views/home.view.php");
         }
     }
 
-    public function buscarContas() {
-
+    function selecionarConta($id)
+    {
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        $_SESSION['contaSelecionada'] = $id;
+        header('Location: /Home');
     }
 }

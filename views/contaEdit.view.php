@@ -9,20 +9,20 @@
 </head>
 
 
-<?php if ($selected != '') : ?>
+<?php if ($contaSelecionada != '') : ?>
     <div class="contaBox">
         <h1 style="color: white">
-            <?php echo "<b>" . $selected  . "</b>" ?>
+            <?php echo "<b>" . $contaSelecionada->nome  . "</b>" ?>
         </h1>
         <form action="index.php?acao=contas" method="POST">
             <p style="color:red; padding:0px; margin:0px;"><?= $erroEditar ?></p>
             <div class="form-group">
                 <label for="login" class="label">Login</label>
-                <input class="form-control" type="text" name="editarLogin" value="<?= $loginTemp ?>">
+                <input class="form-control" type="text" name="editarLogin" value="<?= $contaSelecionada->login ?>">
             </div>
             <label for="senha" class="label">Senha</label>
             <div class="input-group mb-3">
-                <input class="form-control" type="text" name="editarSenha" id="senhaEdit" value="<?= $senhaTemp ?>">
+                <input class="form-control" type="text" name="editarSenha" id="senhaEdit" value="<?= $contaSelecionada->senha ?>">
                 <button type="button" class="btn btn-primary" style="margin: 0px" onclick="changeEdit()">Gerar Aleatória</button>
             </div>
             <div class="col" style="padding-top: 15px">

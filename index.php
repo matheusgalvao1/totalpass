@@ -20,5 +20,6 @@
   Router::post('/enviarLogin', 'LoginController@efetuarLogin');
   Router::post('/adicionarConta', 'ContasController@validarAdicionar');
   Router::post('/enviarCadastro', 'CadastrarController@validarCadastro');
+  Router::post('/selecionarConta', 'ContasController@selecionarConta');
   Router::start();
 ?>
