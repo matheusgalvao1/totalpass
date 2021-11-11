@@ -24,7 +24,7 @@
 
 <?php if ($contas): ?>
         <?php foreach ($contas as $conta) : ?>
-            <form action="/selecionarConta?id={$conta->idconta}" method="POST">
+            <form action="/selecionarConta/<?=$conta->idconta?>" method="POST">
                 <input type="hidden" name="selected" value=<?php echo $conta->idconta ?>>
                 <button type="submit" class="btn btn-primary" style="width: 400px; margin-bottom: 5px; font-size: 20px"><?php echo $conta->nome; ?></button>
             </form>
