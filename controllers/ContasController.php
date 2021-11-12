@@ -27,10 +27,9 @@ class ContasController
         }
         // Buscar contas
         $busca = '';
-        // lembrar de ver se ja nao tem contas no vetor ***************************
-        $contas = $bdF->buscarContas($_SESSION['idUsuario']);
+        $contas = empty($_SESSION['busca']) ? $bdF->buscarContas($_SESSION['idUsuario']) : $bdF->buscarContaNome($busca, $_SESSION['idUsuario']);
         // Add conta
-        $contaSelecionada = $bdF->buscarContaID($_SESSION['contaSelecionada']) ?? '';
+        $contaSelecionada = empty($_SESSION['contaSelecionada']) ? '' : $bdF->buscarContaID($_SESSION['contaSelecionada']);
         $novoNome = '';
         $novoLogin = '';
         $novaSenha = '';
@@ -86,12 +85,12 @@ class ContasController
         header('Location: /Home');
     }
 
-    function buscarConta($nomeBusca)
+    function setarBusca()
     {
-        $bdF = new BDfuncoes();
         if (!isset($_SESSION)) {
             session_start();
         }
-        $contas = $bdF->buscarContaNome($nomeBusca, $_SESSION['idUsuario']);
+
+        header('Location: /Home');
     }
 }
