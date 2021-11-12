@@ -10,9 +10,9 @@
 </head>
 
 
-<form action="index.php?acao=contas" method="GET">
+<form action="/buscarConta/<?= $busca?>" method="GET">
     <div class="input-group mb-3" style="width: 400px;">
-        <input type="text" class="form-control" placeholder="Buscar Conta" id="buscar" name="busca">
+        <input type="text" class="form-control" placeholder="Buscar Conta" id="buscar" name="busca" value=<?php echo $busca ?>>
         <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
     </div>
 </form>
