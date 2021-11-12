@@ -73,4 +73,13 @@ class ContasController
         $_SESSION['contaSelecionada'] = $id;
         header('Location: /Home');
     }
+
+    function recarregarContas()
+    {
+        $bdF = new BDfuncoes();
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        $contas = $bdF->buscarContas($_SESSION['idUsuario']);
+    }
 }

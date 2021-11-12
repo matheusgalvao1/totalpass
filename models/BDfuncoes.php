@@ -42,10 +42,11 @@ class BDfuncoes
         return $listContas;
     }
 
-    public function buscarContaNome($nomeConta){
+    public function buscarContaNome($nomeConta, $idusuario){
         $bd = Conexao::get();
-        $query = $bd->prepare("SELECT * FROM conta WHERE (:nome LIKE nome)");
+        $query = $bd->prepare("SELECT * FROM conta WHERE (:nome LIKE nome AND :idusuario = idusuario)");
         $query->bindParam(':nome', $nomeConta);
+        $query->bindParam(':idusuario', $idusuario);
         $query->execute();
         $listContas = $query->fetchAll(PDO::FETCH_CLASS, 'Conta');
         return $listContas;

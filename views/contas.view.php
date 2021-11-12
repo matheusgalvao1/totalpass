@@ -17,8 +17,8 @@
     </div>
 </form>
 
-<form action="index.php?acao=contas" method="GET">
-    <input type="hidden" name="busca" value="semBusca">
+<form action="/recarregarContas" method="GET">
+    <input type="hidden">
     <button type="submit" class="btn btn-outline-light" style="margin-bottom: 20px"><i class="fa fa-refresh" style="padding-right: 10px"></i>Recarregar todas as contas</button>
 </form>
 
