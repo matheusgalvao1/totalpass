@@ -14,7 +14,7 @@
         <h1 style="color: white">
             <?php echo "<b>" . $contaSelecionada->nome  . "</b>" ?>
         </h1>
-        <form action="index.php?acao=contas" method="POST">
+        <form action="/editarConta" method="POST">
             <p style="color:red; padding:0px; margin:0px;"><?= $erroEditar ?></p>
             <div class="form-group">
                 <label for="login" class="label">Login</label>

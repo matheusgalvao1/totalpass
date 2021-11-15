@@ -85,12 +85,13 @@ class ContasController
         header('Location: /Home');
     }
 
-    function setarBusca()
+    function editarConta()
     {
+        $bdF = new BDfuncoes();
         if (!isset($_SESSION)) {
             session_start();
         }
-
+        $bdF->editarConta($_SESSION['idUsuario'], $contaSelecionada);
         header('Location: /Home');
     }
 

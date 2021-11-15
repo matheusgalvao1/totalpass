@@ -61,8 +61,14 @@ class BDfuncoes
         return $conta;
     } 
 
-    public function editarConta($idusuario, $idconta){
-
+    public function editarConta($idusuario, $conta){
+        $bd = Conexao::get();
+        $query = $bd->prepare("UPDATE conta SET login = :login, senha = :senha WHERE (:idconta = idconta AND :idusuario = idusuario)");
+        $query->bindParam(':idusuario', $idusuario);
+        $query->bindParam(':idconta', $conta->idconta);
+        $query->bindParam(':login', $conta->login);
+        $query->bindParam(':senha', $conta->senha);
+        $query->execute();
     }
     
     public function excluirConta($idusuario, $idconta){
