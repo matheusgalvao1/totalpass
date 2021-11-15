@@ -23,5 +23,6 @@
   Router::post('/adicionarConta', 'ContasController@validarAdicionar');
   Router::post('/enviarCadastro', 'CadastrarController@validarCadastro');
   Router::post('/selecionarConta/{id}', 'ContasController@selecionarConta');
+  Router::post('/excluirConta', 'ContasController@excluirConta');
   Router::start();
 ?>

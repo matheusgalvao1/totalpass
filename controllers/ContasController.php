@@ -93,4 +93,13 @@ class ContasController
 
         header('Location: /Home');
     }
+
+    function excluirConta(){
+        $bdF = new BDfuncoes();
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        $bdF->excluirConta($_SESSION['idUsuario'], $_SESSION['contaSelecionada']);
+        header('Location: /Home');
+    }
 }

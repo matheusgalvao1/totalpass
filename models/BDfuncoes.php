@@ -64,4 +64,12 @@ class BDfuncoes
     public function editarConta($idusuario, $idconta){
 
     }
+    
+    public function excluirConta($idusuario, $idconta){
+        $bd = Conexao::get();
+        $query = $bd->prepare("DELETE FROM conta WHERE (:idconta = idconta AND :idusuario = idusuario)");
+        $query->bindParam(':idconta', $idconta);
+        $query->bindParam(':idusuario', $idusuario);
+        $query->execute();
+    }
 }
