@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/css/buttons.css">
 </head>
 
-<body>
+<body style='background-color: #333'>
     <ul class="nav justify-content-center">
         <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/Home">
