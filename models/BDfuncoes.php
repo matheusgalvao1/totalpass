@@ -45,7 +45,8 @@ class BDfuncoes
     public function buscarContaNome($nomeConta, $idusuario){
         $bd = Conexao::get();
         $query = $bd->prepare("SELECT * FROM conta WHERE (:nome LIKE nome AND :idusuario = idusuario)");
-        $query->bindParam(':nome', $nomeConta);
+        $nome = $nomeConta."%";
+        $query->bindParam(':nome', $nome);
         $query->bindParam(':idusuario', $idusuario);
         $query->execute();
         $listContas = $query->fetchAll(PDO::FETCH_CLASS, 'Conta');
@@ -61,13 +62,13 @@ class BDfuncoes
         return $conta;
     } 
 
-    public function editarConta($idusuario, $conta){
+    public function editarConta($idusuario, $login, $senha, $idConta){
         $bd = Conexao::get();
         $query = $bd->prepare("UPDATE conta SET login = :login, senha = :senha WHERE (:idconta = idconta AND :idusuario = idusuario)");
         $query->bindParam(':idusuario', $idusuario);
-        $query->bindParam(':idconta', $conta->idconta);
-        $query->bindParam(':login', $conta->login);
-        $query->bindParam(':senha', $conta->senha);
+        $query->bindParam(':idconta', $idConta);
+        $query->bindParam(':login', $login);
+        $query->bindParam(':senha', $senha);
         $query->execute();
     }
     

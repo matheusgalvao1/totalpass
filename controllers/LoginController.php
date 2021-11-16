@@ -27,6 +27,7 @@
                     if(password_verify($senha, $user->senha)){
                         $_SESSION['idUsuario'] = $user->idusuario;
                         $_SESSION['logado'] = true;
+                        $_SESSION['buscaAtual'] = '';
                         header('Location: /');
                     } 
                 } 

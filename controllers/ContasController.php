@@ -26,8 +26,8 @@ class ContasController
             session_start();
         }
         // Buscar contas
-        $busca = '';
-        $contas = empty($_SESSION['busca']) ? $bdF->buscarContas($_SESSION['idUsuario']) : $bdF->buscarContaNome($busca, $_SESSION['idUsuario']);
+        $busca = $_SESSION['buscaAtual'] ?? '';
+        $contas = ($busca == '') ? $bdF->buscarContas($_SESSION['idUsuario']) : $bdF->buscarContaNome($busca, $_SESSION['idUsuario']);
         // Add conta
         $contaSelecionada = empty($_SESSION['contaSelecionada']) ? '' : $bdF->buscarContaID($_SESSION['contaSelecionada']);
         $novoNome = '';
@@ -81,17 +81,21 @@ class ContasController
         if (!isset($_SESSION)) {
             session_start();
         }
-        $contas = $bdF->buscarContas($_SESSION['idUsuario']);
+        $_SESSION['buscaAtual'] = '';
         header('Location: /Home');
     }
 
     function editarConta()
     {
-        $bdF = new BDfuncoes();
-        if (!isset($_SESSION)) {
-            session_start();
+        $login = $_POST['editarLogin'] ?? '';
+        $senha = $_POST['editarSenha'] ?? '';
+        if(!($login == '' || $senha == '')){
+            $bdF = new BDfuncoes();
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+            $bdF->editarConta($_SESSION['idUsuario'], $login, $senha, $_SESSION['contaSelecionada']);
         }
-        $bdF->editarConta($_SESSION['idUsuario'], $contaSelecionada);
         header('Location: /Home');
     }
 
@@ -101,6 +105,15 @@ class ContasController
             session_start();
         }
         $bdF->excluirConta($_SESSION['idUsuario'], $_SESSION['contaSelecionada']);
+        header('Location: /Home');
+    }
+
+    function buscarConta(){
+        $busca = $_POST['inputBusca'] ?? '';
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        $_SESSION['buscaAtual'] = $busca;
         header('Location: /Home');
     }
 }
