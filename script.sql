@@ -15,6 +15,6 @@ senha VARCHAR(500),
 nome VARCHAR(500),
 login VARCHAR(1000),
 idusuario INTEGER,
-FOREIGN KEY(IDUsuario) REFERENCES Usuario (IDUsuario)
+FOREIGN KEY(IDUsuario) REFERENCES Usuario (IDUsuario) ON DELETE CASCADE
 );
 

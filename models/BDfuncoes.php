@@ -93,7 +93,7 @@ class BDfuncoes
 
     public function excluirMinhaConta($id){
         $bd = Conexao::get();
-        $query = $bd->prepare("DELETE FROM usuario WHERE :idusuario = idusuario)");
+        $query = $bd->prepare("DELETE FROM usuario WHERE idusuario = :idusuario");
         $query->bindParam(':idusuario', $id);
         $query->execute();
     }

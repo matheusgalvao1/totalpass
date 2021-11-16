@@ -76,8 +76,10 @@ class MeusDadosController
             session_start();
         }
         $bdF = new BDfuncoes();
-        $bdF->excluirMinhaConta($_SESSION['idUsuario']);
+        $id = $_SESSION['idUsuario'];
+        $bdF->excluirMinhaConta($id);
         // mais alguma coisa acho
-        require("views/login.view.php");
+        session_destroy();
+        header('Location: /');
     }
 }
