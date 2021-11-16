@@ -17,6 +17,7 @@
   Router::get('/Login', 'LoginController@carregarTela');
   Router::get('/Home', 'ContasController@carregarHome');
   Router::get('/Cadastrar', 'CadastrarController@carregarTela');
+  Router::get('/MeusDados', 'MeusDadosController@carregarTela');
   Router::post('/buscarConta', 'ContasController@buscarConta');
   Router::get('/recarregarContas', 'ContasController@recarregarContas');
   Router::post('/enviarLogin', 'LoginController@efetuarLogin');
