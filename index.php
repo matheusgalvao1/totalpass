@@ -21,10 +21,12 @@
   Router::post('/buscarConta', 'ContasController@buscarConta');
   Router::get('/recarregarContas', 'ContasController@recarregarContas');
   Router::post('/enviarLogin', 'LoginController@efetuarLogin');
+  Router::post('/salvarMeusDados', 'MeusDadosController@validarEdicaoDados');
   Router::post('/adicionarConta', 'ContasController@validarAdicionar');
   Router::post('/enviarCadastro', 'CadastrarController@validarCadastro');
   Router::post('/selecionarConta/{id}', 'ContasController@selecionarConta');
   Router::post('/excluirConta', 'ContasController@excluirConta');
+  Router::post('/excluirMinhaConta', 'MeusDadosController@excluirMinhaConta');
   Router::post('/editarConta', 'ContasController@editarConta');
   Router::start();
 ?>

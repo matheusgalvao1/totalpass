@@ -79,4 +79,22 @@ class BDfuncoes
         $query->bindParam(':idusuario', $idusuario);
         $query->execute();
     }
+
+    public function editarMeusDados($user){
+        $bd = Conexao::get();
+        $query = $bd->prepare("UPDATE usuario SET nome = :nome, sobrenome = :sobrenome, email = :email, senha = :senha WHERE :idusuario = idusuario");
+        $query->bindParam(':idusuario', $user->idusuario);
+        $query->bindParam(':nome', $user->nome);
+        $query->bindParam(':sobrenome', $user->sobrenome);
+        $query->bindParam(':email', $user->email);
+        $query->bindParam(':senha', $user->senha);
+        $query->execute();
+    }
+
+    public function excluirMinhaConta($id){
+        $bd = Conexao::get();
+        $query = $bd->prepare("DELETE FROM usuario WHERE :idusuario = idusuario)");
+        $query->bindParam(':idusuario', $id);
+        $query->execute();
+    }
 }

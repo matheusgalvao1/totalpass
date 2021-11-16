@@ -35,27 +35,28 @@ require('nav.view.php');
                             <h3>Editar meus dados</h3>
                         </div>
                         <div class="col">
-                            <form action="" method="POST" style="margin-bottom: 15px">
+                            <form action="/excluirMinhaConta" method="POST" style="margin-bottom: 15px">
                                 <input type="hidden" name="excluir" value="excluir">
-                                <button type="submit" class="btn btn-danger" ><i class="fa fa-trash" style="margin-right: 20px"></i>Excluir conta TotalPass</button>
+                                <button type="submit" class="btn btn-danger"><i class="fa fa-trash" style="margin-right: 20px"></i>Excluir conta TotalPass</button>
                             </form>
                         </div>
                     </div>
-                    <form action="" method="POST">
+                    <form action="/salvarMeusDados" method="POST">
                         <div class="form-group">
-                            <p class="erro">erro</p>
-                            <input type="text" class="form-control" placeholder="Nome *" value="" name="" />
+                            <p class="erro"><?= $erros['erroNome'] ?></p>
+                            <input type="text" class="form-control" placeholder="Nome *" value="<?= $nome ?>" name="inputNome" />
                         </div>
                         <div class="form-group">
-                            <p class="erro">erro</p>
-                            <input type="text" class="form-control" placeholder="Sobrenome *" value="" name="" />
+                            <p class="erro"><?= $erros['erroSobrenome'] ?></p>
+                            <input type="text" class="form-control" placeholder="Sobrenome *" value="<?= $sobrenome ?>" name="inputSobrenome" />
                         </div>
                         <div class="form-group">
-                            <p class="erro">erro</p>
-                            <input type="email" class="form-control" placeholder="Email *" value="" name="" />
+                            <p class="erro"><?= $erros['erroEmail'] ?></p>
+                            <input type="email" class="form-control" placeholder="Email *" value="<?= $email ?>" name="inputEmail" />
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Senha *" value="" name="" />
+                            <p class="erro"><?= $erros['erroSenha'] ?></p>
+                            <input type="password" class="form-control" placeholder="Senha *" value="<?= $senha ?>" name="inputSenha" />
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btnSubmit" value="Salvar" name="" />
