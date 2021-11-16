@@ -44,7 +44,7 @@ class BDfuncoes
 
     public function buscarContaNome($nomeConta, $idusuario){
         $bd = Conexao::get();
-        $query = $bd->prepare("SELECT * FROM conta WHERE (:nome LIKE nome AND :idusuario = idusuario)");
+        $query = $bd->prepare("SELECT * FROM conta WHERE (nome LIKE :nome AND :idusuario = idusuario)");
         $nome = $nomeConta."%";
         $query->bindParam(':nome', $nome);
         $query->bindParam(':idusuario', $idusuario);
