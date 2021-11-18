@@ -16,6 +16,31 @@ function validarDadosAdd($nome, $login, $senha, &$erroAdd)
     return true;
 }
 
+function avaliarTempoAdd(&$novoNome, &$novoLogin, &$novaSenha){
+    if(isset($_SESSION['limiteAdd'])){
+        if(time() + 5 <= $_SESSION['limiteAdd']){
+            $novoNome = $_SESSION['novoNome'];
+            $novoLogin = $_SESSION['novoLogin'];
+            $novaSenha = $_SESSION['novaSenha'];
+        } else{
+            unset($_SESSION['novoNome']);
+            unset($_SESSION['novoLogin']);
+            unset($_SESSION['novaSenha']);
+        }
+    }
+}
+
+function avaliarTempoEdit(&$contaSelecionada){
+    if(isset($_SESSION['limiteEdit'])){
+        if(time() + 5 <= $_SESSION['limiteEdit']){
+            $contaSelecionada->login = $_SESSION['editLogin'];
+            $contaSelecionada->senha = $_SESSION['editSenha'];
+        } else{
+            unset($_SESSION['editLogin']);
+            unset($_SESSION['editSenha']);
+        }
+    }
+}
 
 class ContasController
 {
@@ -30,29 +55,29 @@ class ContasController
         $contas = ($busca == '') ? $bdF->buscarContas($_SESSION['idUsuario']) : $bdF->buscarContaNome($busca, $_SESSION['idUsuario']);
         // Add conta
         $contaSelecionada = empty($_SESSION['contaSelecionada']) ? '' : $bdF->buscarContaID($_SESSION['contaSelecionada']);
+        
         $novoNome = '';
         $novoLogin = '';
         $novaSenha = '';
-        $erroAdd = '';
+        avaliarTempoAdd($novoNome, $novoLogin, $novaSenha);
+        $erroAdd = $_COOKIE['erroAdd'] ?? '';
         // Edit conta
-        $editNome = '';
-        $editLogin = '';
-        $editSenha = '';
-        $erroEditar = '';
+        $erroEditar = $_COOKIE['erroEdit'] ?? '';
+        avaliarTempoEdit($contaSelecionada);
         require("views/home.view.php");
     }
 
     public function validarAdicionar()
     {
+        if (!isset($_SESSION)) {
+            session_start();
+        }
         $novoNome = $_POST['novoNome'];
         $novoLogin = $_POST['novoLogin'];
         $novaSenha = $_POST['novaSenha'];
         $erroAdd = '';
 
         if (validarDadosAdd($novoNome, $novoLogin, $novaSenha, $erroAdd)) {
-            if (!isset($_SESSION)) {
-                session_start();
-            }
             $bdF = new BDfuncoes();
             $conta = new Conta();
             $conta->nome = $novoNome;
@@ -62,7 +87,12 @@ class ContasController
             $bdF->insertConta($conta);
             header('Location: /Home');
         } else {
-            require("views/home.view.php");
+            $_SESSION['novoNome'] = $novoNome;
+            $_SESSION['novoLogin'] = $novoLogin;
+            $_SESSION['novaSenha'] = $novaSenha;
+            $_SESSION['limiteAdd'] = time() + 5;
+            setcookie('erroAdd', $erroAdd, time() + 3);
+            header('Location: /Home');
         }
     }
 
@@ -87,14 +117,19 @@ class ContasController
 
     function editarConta()
     {
+        if (!isset($_SESSION)) {
+            session_start();
+        }
         $login = $_POST['editarLogin'] ?? '';
         $senha = $_POST['editarSenha'] ?? '';
-        if(!($login == '' || $senha == '')){
+        if(!(($login == '' || $login == ' ') || ($senha == '' || $senha == ' '))){
             $bdF = new BDfuncoes();
-            if (!isset($_SESSION)) {
-                session_start();
-            }
             $bdF->editarConta($_SESSION['idUsuario'], $login, $senha, $_SESSION['contaSelecionada']);
+        } else{
+            setcookie('erroEdit', 'Campo vazio!', time() + 3); 
+            $_SESSION['limiteEdit'] = time() + 5;
+            $_SESSION['editLogin'] = $login;
+            $_SESSION['editSenha'] = $senha;
         }
         header('Location: /Home');
     }

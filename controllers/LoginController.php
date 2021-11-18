@@ -25,6 +25,7 @@
                 $user = $bf->buscarPorEmail($email);
                 if($user){
                     if(password_verify($senha, $user->senha)){
+                        session_set_cookie_params(0);
                         $_SESSION['idUsuario'] = $user->idusuario;
                         $_SESSION['logado'] = true;
                         $_SESSION['buscaAtual'] = '';
