@@ -38,7 +38,7 @@ function emailExiste($novoEmail, $emailAtual) {
         session_start();
     }
     $bdF = new BDfuncoes();
-    if($bdF->buscarPorEmail($novoEmail, 0) && ($novoEmail != $emailAtual)){
+    if(!$bdF->buscarPorEmail($novoEmail, 0) && ($novoEmail != $emailAtual)){
         return true;
     } else {
         return false;
