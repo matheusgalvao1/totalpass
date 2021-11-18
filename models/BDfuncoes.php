@@ -24,13 +24,24 @@ class BDfuncoes
         $query->execute();
     }
 
-    public function buscarPorEmail($email){
+    public function buscarPorEmail($email, $controlador){ //0-Ver se existe 1-Buscar pelo email
         $bd = Conexao::get();
-        $query = $bd->prepare("SELECT * FROM usuario WHERE :email = email");
-        $query->bindParam(':email', $email);
-        $query->execute();
-        $user = $query->fetchObject('Usuario');
-        return $user;
+        if ($controlador == 1){
+            $query = $bd->prepare("SELECT * FROM usuario WHERE :email = email");
+            $query->bindParam(':email', $email);
+            $query->execute();
+            $user = $query->fetchObject('Usuario');
+            return $user;
+        } else{
+            $query = $bd->prepare("SELECT idusuario FROM usuario WHERE email = :email");
+            $query->bindParam(':email', $email);
+            $query->execute();
+            $result = $query->fetch(PDO::FETCH_ASSOC);
+            if(count($result) == 0){
+                return true;
+            } else
+                return false;
+        }
     }
 
     public function buscarContas($id){

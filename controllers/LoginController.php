@@ -22,7 +22,7 @@
             if (!filter_input(INPUT_POST, 'inputEmail', FILTER_VALIDATE_EMAIL)){
                 $erro = "O Email inserido não é válido!";
             }else{
-                $user = $bf->buscarPorEmail($email);
+                $user = $bf->buscarPorEmail($email, 1);
                 if($user){
                     if(password_verify($senha, $user->senha)){
                         session_set_cookie_params(0);
