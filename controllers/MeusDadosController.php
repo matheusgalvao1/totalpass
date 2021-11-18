@@ -27,9 +27,17 @@ class MeusDadosController
 
     public function carregarTela()
     {
-        $nome = '';
-        $sobrenome = '';
-        $email = '';
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        $bdF = new BDfuncoes();
+        $user = new Usuario();
+
+        $user = $bdF->buscarUserPorId($_SESSION['idUsuario']);
+
+        $nome = $user->nome ?? '';
+        $sobrenome = $user->sobrenome ?? '';
+        $email = $user->email ?? '';
         $senha = '';
         $erros = [
             'erroNome' => '',

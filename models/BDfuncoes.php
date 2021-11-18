@@ -24,6 +24,15 @@ class BDfuncoes
         $query->execute();
     }
 
+    public function buscarUserPorId($id){
+        $bd = Conexao::get();
+        $query = $bd->prepare("SELECT * FROM usuario WHERE :idusuario = idusuario");
+        $query->bindParam(':idusuario', $id);
+        $query->execute();
+        $user = $query->fetchObject('Usuario');
+        return $user;
+    }
+
     public function buscarPorEmail($email, $controlador){ //0-Ver se existe 1-Buscar pelo email
         $bd = Conexao::get();
         if ($controlador == 1){
