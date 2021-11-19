@@ -1,18 +1,19 @@
 <?php
   require 'vendor/autoload.php';
   use Pecee\SimpleRouter\SimpleRouter as Router;
-  /*
-  $acao = $_GET['acao'] ?? 'erro';
-  if (empty($_SESSION['logado']) || !$_SESSION['logado']){
-    if ($acao == 'cadastrar'){
-      require("controllers/cadastrar.controller.php");
-    } else{
-      require("controllers/login.controller.php");
+  use Pecee\Http\Request;
+
+  Router::error(function(Request $request, \Exception $exception) {
+    switch($exception->getCode()) {
+      // Page not found
+      case 404:
+          response()->redirect('/not-found');
+      // Forbidden
+      case 403:
+          response()->redirect('/forbidden');
     }
-  } else{
-    require("controllers/home.controller.php");
-  }
-  */
+  });
+
   Router::get('/', 'IndexController@index');
   Router::get('/Login', 'LoginController@carregarTela');
   Router::get('/Home', 'ContasController@carregarHome');
@@ -30,5 +31,7 @@
   Router::post('/confirmarExcluir', 'MeusDadosController@confirmarExcluir');
   Router::post('/editarConta', 'ContasController@editarConta');
   Router::post('/gerarSenha', 'GerarSenha@gerarSenha');
+  Router::get('/not-found', 'PageController@notFound');
+
   Router::start();
 ?>

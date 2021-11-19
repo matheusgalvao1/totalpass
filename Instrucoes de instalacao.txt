@@ -1,7 +1,10 @@
 Para a instalação e execução do projeto, seguir os passos:
 1- Assegurar que o XAMPP está instalado e funcionando corretamente;
-2- Clonar o repositório git dentro da pasta XAMPP/htdocs (Pode ser que outra pasta esteja configurada para ser "enxergada" pelo APACHE);
+2- Clonar o repositório git dentro da pasta XAMPP/htdocs (Certificar-se que está selecionada a branch "envio2");
 3- Já dentro da pasta referente ao projeto (/totalpass), abrir o terminal e executar o comando : "php -S localhost:8080", ou outra porta;
-4- Abrir o navegador e buscar pelo link: "localhost:8080" ou porta selecionada;
-5- Utilizar o login email: "admin@email.com" e senha "admin" ou escolher cadastrar um novo usuário;
-6- Como ainda não implementamos banco, o novo usuário cadastrado só pode ser utilizado enquanto a sessão não é encerrada;
+4- Executar o conteudo do arquivo "script.sql" no terminal de um Database (utilizamos MySql);
+5- Executar o comando "composer init";
+6- Executar o comando "composer dump-autoload";
+7- Abrir o navegador e buscar pelo link: "localhost:8080" ou porta selecionada;
+8- Cadastrar um novo usuário;
+9- Entrar com o novo usuário e utilizar as funcionalidades;

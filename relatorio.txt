@@ -1,10 +1,9 @@
 Integrantes: Mairon Lucas Slusarz (2163330) e Matheus Rigoni Galvão (2163357)
-Nesta primeira entrega do projeto, o usuário pode entrar com o login especificado no documento "Instrucoes de instalacao" ou cadastrar um novo usuário através do botão "Cadastrar" da tela de login, sendo que, como ainda não implementamos o banco, esse novo só pode ser utilizado para login uma vez. Dentro da plataforma, o usuário pode cadastrar novas contas as quais deseja armazenar senha e login, assim como gerar uma senha aleatória, editar os dados dessa conta ou exclui-la.
+Nesta segunda entrega do projeto, pode ser realizado o cadastro de novos usuários. Dentro da plataforma, o usuário pode cadastrar novas contas as quais deseja armazenar senha e login, assim como gerar uma senha aleatória, editar os dados dessa conta ou exclui-la.
 
 Funcionalidades faltantes e bugs:
 Caso o usuário tente acessar qualquer controller através do preenchimento de caminho pelo navegador, não será possível por falha de inclusão de arquivos;
-A principal funcionalidade faltante é a ausência do Banco de dados, a qual estará no Trabalho 2;
-Não implementamos uma tela de edição de dados ou exclusão da conta. Por não trabalharmos com banco e o usuário não ser mantido caso a sessão seja encerrada, julgamos melhor deixar esta funcionalidade para o trabalho 2;
+As Exceptions sao capturadas, mas algumas podem gerar bugs.
 
 Atividades realizadas pelos membros:
 Mairon Lucas Slusarz: Desenvolveu o sistema de login e cadastro de novo usuário, assim como a criptografia das senhas mestres (referentes ao acesso a plataforma). Organizou o sistema de rotas entre as páginas, carregamento delas e de seus controllers. Contribuiu no desenvolvimento dos controllers;
