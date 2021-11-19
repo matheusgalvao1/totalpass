@@ -6,6 +6,6 @@ Caso o usuário tente acessar qualquer controller através do preenchimento de c
 As Exceptions sao capturadas, mas algumas podem gerar bugs.
 
 Atividades realizadas pelos membros:
-Mairon Lucas Slusarz: Desenvolveu o sistema de login e cadastro de novo usuário, assim como a criptografia das senhas mestres (referentes ao acesso a plataforma). Organizou o sistema de rotas entre as páginas, carregamento delas e de seus controllers. Contribuiu no desenvolvimento dos controllers;
+Mairon Lucas Slusarz: Implementou o mecanismo de rota utilizando o SimpleRouter, configurou o autoload, alterou os arquivos relacionados a login e cadastro para virarem classes. Contribuiu com a criação do script para gerar o banco, assim como as classes relacionadas. Implementou uma classe de criptografia para utilizar nos dados de conta e de usuário. Contribuiu com outros ajustes relacionados a homepage e pop-ups de confirmações;
 
 Matheus Rigoni Galvão: Desenvolveu toda a interface da home e todos os seus componentes estilizados, juntamente com a manipulação do array associativo que armazena as contas, como sua inserção, exclusão, edição e busca, também desenvolveu o botão para gerar uma senha aleatória.
