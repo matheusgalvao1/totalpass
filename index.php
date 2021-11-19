@@ -7,10 +7,10 @@
     switch($exception->getCode()) {
       // Page not found
       case 404:
-          response()->redirect('/not-found');
+          Router::redirect('/not-found', 'PageController@notFound');
       // Forbidden
       case 403:
-          response()->redirect('/forbidden');
+          Router::redirect('/forbidden', 'PageController@notFound');
     }
   });
 

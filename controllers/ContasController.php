@@ -171,6 +171,7 @@ class ContasController
             $_SESSION['icon'] = 'error';
         }
         $_SESSION['tituloPop'] = 'Excluir conta';
+        $_SESSION['contaSelecionada'] = '';
         header('Location: /Home');
     }
 
