@@ -117,8 +117,14 @@ class MeusDadosController
         }
         $bdF = new BDfuncoes();
         $id = $_SESSION['idUsuario'];
+        try{ 
         $bdF->excluirMinhaConta($id);
         session_destroy();
+        } catch (Exception $e){
+            $_SESSION['tituloPopMD'] = 'Erro';
+            $_SESSION['textPopMD'] = $e->getMessage();
+            $_SESSION['iconMD'] = 'error';
+        }
     }
 
     public function confirmarExcluir(){
