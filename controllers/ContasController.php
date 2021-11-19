@@ -58,7 +58,6 @@ class ContasController
             $contas = ($busca == '') ? $bdF->buscarContas($_SESSION['idUsuario']) : $bdF->buscarContaNome($busca, $_SESSION['idUsuario']);
             // Add conta
             $contaSelecionada = empty($_SESSION['contaSelecionada']) ? '' : $bdF->buscarContaID($_SESSION['contaSelecionada']);
-
             $novoNome = '';
             $novoLogin = '';
             $novaSenha = '';

@@ -2,8 +2,12 @@
 
 class BDfuncoes
 {
+
     public function insertConta($conta)
     {
+        $cripto = new Cripto();
+        $conta->login = $cripto->encrypt($conta->login);
+        $conta->senha = $cripto->encrypt($conta->senha);
         try{
             $bd = Conexao::get();
             $query = $bd->prepare("INSERT INTO conta(nome, login, senha, idusuario) VALUES(:nome, :login, :senha, :idusuario) ");
@@ -19,6 +23,9 @@ class BDfuncoes
 
     public function insertUsuario($user)
     {
+        $cripto = new Cripto();
+        $user->nome = $cripto->encrypt($user->nome);
+        $user->sobrenome = $cripto->encrypt($user->sobrenome);
         $bd = Conexao::get();
         $query = $bd->prepare("INSERT INTO usuario(nome, sobrenome, email, senha) VALUES(:nome, :sobrenome, :email, :senha)");
         $query->bindParam(':nome', $user->nome);
@@ -30,10 +37,13 @@ class BDfuncoes
 
     public function buscarUserPorId($id){
         $bd = Conexao::get();
+        $cripto = new Cripto();
         $query = $bd->prepare("SELECT * FROM usuario WHERE :idusuario = idusuario");
         $query->bindParam(':idusuario', $id);
         $query->execute();
         $user = $query->fetchObject('Usuario');
+        $user->nome = $cripto->decrypt($user->nome);
+        $user->sobrenome = $cripto->decrypt($user->sobrenome);
         return $user;
     }
 
@@ -78,15 +88,21 @@ class BDfuncoes
     } 
 
     public function buscarContaID($idconta){
+        $cripto = new Cripto();
         $bd = Conexao::get();
         $query = $bd->prepare("SELECT * FROM conta WHERE :idconta = idconta");
         $query->bindParam(':idconta', $idconta);
         $query->execute();
         $conta = $query->fetchObject('Conta');
+        $conta->login = $cripto->decrypt($conta->login);
+        $conta->senha = $cripto->decrypt($conta->senha);
         return $conta;
     } 
 
     public function editarConta($idusuario, $login, $senha, $idConta){
+        $cripto = new Cripto();
+        $login = $cripto->encrypt($login);
+        $senha = $cripto->encrypt($senha);
         try{
             $bd = Conexao::get();
             $query = $bd->prepare("UPDATE conta SET login = :login, senha = :senha WHERE (:idconta = idconta AND :idusuario = idusuario)");
@@ -113,6 +129,9 @@ class BDfuncoes
     }
 
     public function editarMeusDados($user){
+        $cripto = new Cripto();
+        $user->nome = $cripto->encrypt($user->nome);
+        $user->sobrenome = $cripto->encrypt($user->sobrenome);
         try{
             $bd = Conexao::get();
             $query = $bd->prepare("UPDATE usuario SET nome = :nome, sobrenome = :sobrenome, email = :email, senha = :senha WHERE :idusuario = idusuario");
