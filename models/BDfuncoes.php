@@ -41,12 +41,12 @@ class BDfuncoes
             $query->execute();
             $user = $query->fetchObject('Usuario');
             return $user;
-        } else{
+        } else if($controlador == 0){
             $query = $bd->prepare("SELECT idusuario FROM usuario WHERE email = :email");
             $query->bindParam(':email', $email);
             $query->execute();
             $result = $query->fetch(PDO::FETCH_ASSOC);
-            if(count($result) == 0){
+            if(!$result){
                 return true;
             } else
                 return false;
