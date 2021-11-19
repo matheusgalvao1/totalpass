@@ -11,7 +11,7 @@ class GerarSenha {
             $rand = rand(0, $l);
             $password += $chars[$rand];
         }
-        return 'aaaa';
+        return $password;
     }
 
 }
