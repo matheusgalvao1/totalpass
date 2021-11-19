@@ -16,13 +16,14 @@ function validarDadosAdd($nome, $login, $senha, &$erroAdd)
     return true;
 }
 
-function avaliarTempoAdd(&$novoNome, &$novoLogin, &$novaSenha){
-    if(isset($_SESSION['limiteAdd'])){
-        if(time() + 5 <= $_SESSION['limiteAdd']){
+function avaliarTempoAdd(&$novoNome, &$novoLogin, &$novaSenha)
+{
+    if (isset($_SESSION['limiteAdd'])) {
+        if (time() + 5 <= $_SESSION['limiteAdd']) {
             $novoNome = $_SESSION['novoNome'];
             $novoLogin = $_SESSION['novoLogin'];
             $novaSenha = $_SESSION['novaSenha'];
-        } else{
+        } else {
             unset($_SESSION['novoNome']);
             unset($_SESSION['novoLogin']);
             unset($_SESSION['novaSenha']);
@@ -30,12 +31,13 @@ function avaliarTempoAdd(&$novoNome, &$novoLogin, &$novaSenha){
     }
 }
 
-function avaliarTempoEdit(&$contaSelecionada){
-    if(isset($_SESSION['limiteEdit'])){
-        if(time() + 5 <= $_SESSION['limiteEdit']){
+function avaliarTempoEdit(&$contaSelecionada)
+{
+    if (isset($_SESSION['limiteEdit'])) {
+        if (time() + 5 <= $_SESSION['limiteEdit']) {
             $contaSelecionada->login = $_SESSION['editLogin'];
             $contaSelecionada->senha = $_SESSION['editSenha'];
-        } else{
+        } else {
             unset($_SESSION['editLogin']);
             unset($_SESSION['editSenha']);
         }
@@ -51,12 +53,12 @@ class ContasController
             session_start();
         }
         // Buscar contas
-        try{
+        try {
             $busca = $_SESSION['buscaAtual'] ?? '';
             $contas = ($busca == '') ? $bdF->buscarContas($_SESSION['idUsuario']) : $bdF->buscarContaNome($busca, $_SESSION['idUsuario']);
             // Add conta
             $contaSelecionada = empty($_SESSION['contaSelecionada']) ? '' : $bdF->buscarContaID($_SESSION['contaSelecionada']);
-            
+
             $novoNome = '';
             $novoLogin = '';
             $novaSenha = '';
@@ -65,7 +67,7 @@ class ContasController
             // Edit conta
             $erroEditar = $_COOKIE['erroEdit'] ?? '';
             avaliarTempoEdit($contaSelecionada);
-        } catch (Exception $e){
+        } catch (Exception $e) {
             $_SESSION['tituloPop'] = 'Erro';
             $_SESSION['textPop'] = $e->getMessage();
             $_SESSION['icon'] = 'success';
@@ -84,7 +86,7 @@ class ContasController
         $erroAdd = '';
 
         if (validarDadosAdd($novoNome, $novoLogin, $novaSenha, $erroAdd)) {
-            try{
+            try {
                 $bdF = new BDfuncoes();
                 $conta = new Conta();
                 $conta->nome = $novoNome;
@@ -94,7 +96,7 @@ class ContasController
                 $bdF->insertConta($conta);
                 $_SESSION['textPop'] = 'Conta adicionada com sucesso!';
                 $_SESSION['icon'] = 'success';
-            } catch (Exception $e){
+            } catch (Exception $e) {
                 $_SESSION['textPop'] = $e->getMessage();
                 $_SESSION['icon'] = 'error';
             }
@@ -133,21 +135,21 @@ class ContasController
         if (!isset($_SESSION)) {
             session_start();
         }
-        try{
+        try {
             $login = $_POST['editarLogin'] ?? '';
             $senha = $_POST['editarSenha'] ?? '';
-            if(!(($login == '' || $login == ' ') || ($senha == '' || $senha == ' '))){
+            if (!(($login == '' || $login == ' ') || ($senha == '' || $senha == ' '))) {
                 $bdF = new BDfuncoes();
                 $bdF->editarConta($_SESSION['idUsuario'], $login, $senha, $_SESSION['contaSelecionada']);
                 $_SESSION['textPop'] = 'Conta editada com sucesso!';
                 $_SESSION['icon'] = 'success';
-            } else{
-                setcookie('erroEdit', 'Campo vazio!', time() + 3); 
+            } else {
+                setcookie('erroEdit', 'Campo vazio!', time() + 3);
                 $_SESSION['limiteEdit'] = time() + 5;
                 $_SESSION['editLogin'] = $login;
                 $_SESSION['editSenha'] = $senha;
             }
-        } catch (Exception $e){
+        } catch (Exception $e) {
             $_SESSION['textPop'] = $e->getMessage();
             $_SESSION['icon'] = 'error';
         }
@@ -155,16 +157,17 @@ class ContasController
         header('Location: /Home');
     }
 
-    function excluirConta(){
+    function excluirConta()
+    {
         $bdF = new BDfuncoes();
         if (!isset($_SESSION)) {
             session_start();
         }
-        try{
+        try {
             $bdF->excluirConta($_SESSION['idUsuario'], $_SESSION['contaSelecionada']);
             $_SESSION['textPop'] = 'Conta excluida com sucesso!';
             $_SESSION['icon'] = 'success';
-        } catch (Exception $e){
+        } catch (Exception $e) {
             $_SESSION['textPop'] = $e->getMessage();
             $_SESSION['icon'] = 'error';
         }
@@ -172,7 +175,8 @@ class ContasController
         header('Location: /Home');
     }
 
-    function buscarConta(){
+    function buscarConta()
+    {
         $busca = $_POST['inputBusca'] ?? '';
         if (!isset($_SESSION)) {
             session_start();

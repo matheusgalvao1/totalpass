@@ -29,5 +29,6 @@
   Router::post('/excluirMinhaConta', 'MeusDadosController@excluirMinhaConta');
   Router::post('/confirmarExcluir', 'MeusDadosController@confirmarExcluir');
   Router::post('/editarConta', 'ContasController@editarConta');
+  Router::post('/gerarSenha', 'GerarSenha@gerarSenha');
   Router::start();
 ?>
