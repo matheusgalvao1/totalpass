@@ -4,13 +4,17 @@ class BDfuncoes
 {
     public function insertConta($conta)
     {
-        $bd = Conexao::get();
-        $query = $bd->prepare("INSERT INTO conta(nome, login, senha, idusuario) VALUES(:nome, :login, :senha, :idusuario) ");
-        $query->bindParam(':nome', $conta->nome);
-        $query->bindParam(':login', $conta->login);
-        $query->bindParam(':senha', $conta->senha);
-        $query->bindParam(':idusuario', $conta->idusuario);
-        $query->execute();
+        try{
+            $bd = Conexao::get();
+            $query = $bd->prepare("INSERT INTO conta(nome, login, senha, idusuario) VALUES(:nome, :login, :senha, :idusuario) ");
+            $query->bindParam(':nome', $conta->nome);
+            $query->bindParam(':login', $conta->login);
+            $query->bindParam(':senha', $conta->senha);
+            $query->bindParam(':idusuario', $conta->idusuario);
+            $query->execute();
+        } catch(Exception $e){
+            throw new Exception('Falha ao adicionar conta!');
+        }
     }
 
     public function insertUsuario($user)
@@ -83,38 +87,54 @@ class BDfuncoes
     } 
 
     public function editarConta($idusuario, $login, $senha, $idConta){
-        $bd = Conexao::get();
-        $query = $bd->prepare("UPDATE conta SET login = :login, senha = :senha WHERE (:idconta = idconta AND :idusuario = idusuario)");
-        $query->bindParam(':idusuario', $idusuario);
-        $query->bindParam(':idconta', $idConta);
-        $query->bindParam(':login', $login);
-        $query->bindParam(':senha', $senha);
-        $query->execute();
+        try{
+            $bd = Conexao::get();
+            $query = $bd->prepare("UPDATE conta SET login = :login, senha = :senha WHERE (:idconta = idconta AND :idusuario = idusuario)");
+            $query->bindParam(':idusuario', $idusuario);
+            $query->bindParam(':idconta', $idConta);
+            $query->bindParam(':login', $login);
+            $query->bindParam(':senha', $senha);
+            $query->execute();
+        } catch (Exception $e){
+            throw new Exception('Falha ao editar conta: Problema no banco!');
+        }
     }
     
     public function excluirConta($idusuario, $idconta){
-        $bd = Conexao::get();
-        $query = $bd->prepare("DELETE FROM conta WHERE (:idconta = idconta AND :idusuario = idusuario)");
-        $query->bindParam(':idconta', $idconta);
-        $query->bindParam(':idusuario', $idusuario);
-        $query->execute();
+        try{
+            $bd = Conexao::get();
+            $query = $bd->prepare("DELETE FROM conta WHERE (:idconta = idconta AND :idusuario = idusuario)");
+            $query->bindParam(':idconta', $idconta);
+            $query->bindParam(':idusuario', $idusuario);
+            $query->execute();
+        } catch (Exception $e){
+            throw new Exception('Falha ao excluir conta: Problema no banco!');
+        }
     }
 
     public function editarMeusDados($user){
-        $bd = Conexao::get();
-        $query = $bd->prepare("UPDATE usuario SET nome = :nome, sobrenome = :sobrenome, email = :email, senha = :senha WHERE :idusuario = idusuario");
-        $query->bindParam(':idusuario', $user->idusuario);
-        $query->bindParam(':nome', $user->nome);
-        $query->bindParam(':sobrenome', $user->sobrenome);
-        $query->bindParam(':email', $user->email);
-        $query->bindParam(':senha', $user->senha);
-        $query->execute();
+        try{
+            $bd = Conexao::get();
+            $query = $bd->prepare("UPDATE usuario SET nome = :nome, sobrenome = :sobrenome, email = :email, senha = :senha WHERE :idusuario = idusuario");
+            $query->bindParam(':idusuario', $user->idusuario);
+            $query->bindParam(':nome', $user->nome);
+            $query->bindParam(':sobrenome', $user->sobrenome);
+            $query->bindParam(':email', $user->email);
+            $query->bindParam(':senha', $user->senha);
+            $query->execute();
+        } catch (Exception $e){
+            throw new Exception('Falha ao editar dados de usuario: Problema no banco!');
+        }
     }
 
     public function excluirMinhaConta($id){
-        $bd = Conexao::get();
-        $query = $bd->prepare("DELETE FROM usuario WHERE idusuario = :idusuario");
-        $query->bindParam(':idusuario', $id);
-        $query->execute();
+        try{
+            $bd = Conexao::get();
+            $query = $bd->prepare("DELETE FROM usuario WHERE idusuario = :idusuario");
+            $query->bindParam(':idusuario', $id);
+            $query->execute();
+        } catch (Exception $e){
+            throw new Exception('Falha ao excluir conta de usuário: Problema no banco!');
+        }
     }
 }
