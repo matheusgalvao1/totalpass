@@ -95,7 +95,16 @@ class MeusDadosController
             $user->sobrenome = $sobrenome;
             $user->email = $email;
             $user->senha = password_hash($senha, PASSWORD_DEFAULT);
-            $bdF->editarMeusDados($user);
+            try{
+                $bdF->editarMeusDados($user);
+                $_SESSION['tituloPopMD'] = 'Sucesso';
+                $_SESSION['textPopMD'] = 'Conta editada com sucesso!';
+                $_SESSION['iconMD'] = 'success';
+            } catch (Exception $e){
+                $_SESSION['tituloPopMD'] = 'Erro';
+                $_SESSION['textPopMD'] = $e->getMessage();
+                $_SESSION['iconMD'] = 'error';
+            }
             header('Location: /MeusDados');
         } else {
             require("views/meusDados.view.php");
@@ -109,8 +118,15 @@ class MeusDadosController
         $bdF = new BDfuncoes();
         $id = $_SESSION['idUsuario'];
         $bdF->excluirMinhaConta($id);
-        // mais alguma coisa acho
         session_destroy();
         header('Location: /');
+    }
+
+    public function confirmarExcluir(){
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        $_SESSION['excluirUser'] = true;
+        header('Location: /MeusDados');
     }
 }

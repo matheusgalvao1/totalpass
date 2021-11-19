@@ -20,9 +20,62 @@ if (empty($_SESSION['logado']) || $_SESSION['logado'] == false) {
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <?php
 require('nav.view.php');
+?>
+
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+if (isset($_SESSION['tituloPopMD'])) {
+?>
+    <script>
+        swal({
+            title: "<?= $_SESSION['tituloPopMD'] ?>",
+            text: "<?= $_SESSION['textPopMD'] ?>",
+            icon: "<?= $_SESSION['iconMD'] ?>",
+        })
+    </script>
+<?php
+    unset($_SESSION['tituloPopMD']);
+    unset($_SESSION['textPopMD']);
+    unset($_SESSION['iconMD']);
+}
+?>
+<?php
+if (isset($_SESSION['excluirUser']) && $_SESSION['excluirUser'] == true) {
+?>
+    <script>
+        swal({
+                title: "Tem certeza?",
+                text: "Todas suas senhas serão perdidas!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/excluirMinhaConta",
+                        success: function(response) {
+                            $.ajax({
+                                type: "GET",
+                                url: "/",
+
+                            });
+                        }
+                    });
+                }
+            });
+    </script>
+<?php
+}
+unset($_SESSION['excluirUser']);
+
 ?>
 
 <body>
@@ -35,7 +88,7 @@ require('nav.view.php');
                             <h3>Editar meus dados</h3>
                         </div>
                         <div class="col">
-                            <form action="/excluirMinhaConta" method="POST" style="margin-bottom: 15px">
+                            <form action="/confirmarExcluir" method="POST" style="margin-bottom: 15px">
                                 <input type="hidden" name="excluir" value="excluir">
                                 <button type="submit" class="btn btn-danger"><i class="fa fa-trash" style="margin-right: 20px"></i>Excluir conta TotalPass</button>
                             </form>

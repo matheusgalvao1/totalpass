@@ -1,9 +1,9 @@
 <?php
-    if(!(session_status() === PHP_SESSION_ACTIVE))
-        session_start();
-    if(empty($_SESSION['logado']) || $_SESSION['logado'] == false){
-        header('Location: /Login');
-    }
+if (!(session_status() === PHP_SESSION_ACTIVE))
+    session_start();
+if (empty($_SESSION['logado']) || $_SESSION['logado'] == false) {
+    header('Location: /Login');
+}
 ?>
 
 <script type="text/javascript">
@@ -46,24 +46,25 @@
 </head>
 <?php
 require('nav.view.php');
-    if (!isset($_SESSION)) {
-        session_start();
-    }
-    if(isset($_SESSION['tituloPop'])){
-    ?>
-        <script>
-            swal({
-                title: "<?= $_SESSION['tituloPop']?>",
-                text: "<?= $_SESSION['textPop']?>",
-                icon: "<?= $_SESSION['icon']?>",
-            })
-        </script>
-    <?php 
-        unset($_SESSION['tituloPop']);
-        unset($_SESSION['textPop']);
-        unset($_SESSION['icon']);
-    }
-    ?>
+if (!isset($_SESSION)) {
+    session_start();
+}
+if (isset($_SESSION['tituloPop'])) {
+?>
+    <script>
+        swal({
+            title: "<?= $_SESSION['tituloPop'] ?>",
+            text: "<?= $_SESSION['textPop'] ?>",
+            icon: "<?= $_SESSION['icon'] ?>",
+        })
+    </script>
+<?php
+    unset($_SESSION['tituloPop']);
+    unset($_SESSION['textPop']);
+    unset($_SESSION['icon']);
+}
+?>
+
 <body class="container bg-dark">
     <div class="container" style="padding-top: 30px; padding-bottom: 30px;">
         <div class="row">
