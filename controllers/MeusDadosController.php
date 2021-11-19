@@ -119,7 +119,6 @@ class MeusDadosController
         $id = $_SESSION['idUsuario'];
         $bdF->excluirMinhaConta($id);
         session_destroy();
-        header('Location: /');
     }
 
     public function confirmarExcluir(){

@@ -60,14 +60,9 @@ if (isset($_SESSION['excluirUser']) && $_SESSION['excluirUser'] == true) {
                 if (willDelete) {
                     $.ajax({
                         type: "POST",
-                        url: "/excluirMinhaConta",
-                        success: function(response) {
-                            $.ajax({
-                                type: "GET",
-                                url: "/",
-
-                            });
-                        }
+                        url: "/excluirMinhaConta"
+                    }).done((response)=>{
+                        window.location.replace('/Login');
                     });
                 }
             });
