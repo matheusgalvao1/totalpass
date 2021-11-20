@@ -1,18 +1,6 @@
 <?php
   require 'vendor/autoload.php';
   use Pecee\SimpleRouter\SimpleRouter as Router;
-  use Pecee\Http\Request;
-
-  Router::error(function(Request $request, \Exception $exception) {
-    switch($exception->getCode()) {
-      // Page not found
-      case 404:
-          Router::redirect('/not-found', 'PageController@notFound');
-      // Forbidden
-      case 403:
-          Router::redirect('/forbidden', 'PageController@notFound');
-    }
-  });
 
   Router::get('/', 'IndexController@index');
   Router::get('/Login', 'LoginController@carregarTela');
@@ -32,6 +20,10 @@
   Router::post('/editarConta', 'ContasController@editarConta');
   Router::get('/gerarSenha', 'GerarSenha@gerarSenha');
   Router::get('/not-found', 'PageController@notFound');
+
+  Router::error(static function(\Pecee\Http\Request $request, \Exception $exception) {
+    header("Location: /not-found");
+  });
 
   Router::start();
 ?>
