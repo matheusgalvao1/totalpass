@@ -126,6 +126,7 @@ class ContasController
             session_start();
         }
         $_SESSION['buscaAtual'] = '';
+        $_SESSION['contaSelecionada'] = '';
         header('Location: /Home');
     }
 
@@ -142,6 +143,7 @@ class ContasController
                 $bdF->editarConta($_SESSION['idUsuario'], $login, $senha, $_SESSION['contaSelecionada']);
                 $_SESSION['textPop'] = 'Conta editada com sucesso!';
                 $_SESSION['icon'] = 'success';
+                $_SESSION['contaSelecionada'] = '';
             } else {
                 setcookie('erroEdit', 'Campo vazio!', time() + 3);
                 $_SESSION['limiteEdit'] = time() + 5;
