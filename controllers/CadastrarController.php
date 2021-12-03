@@ -63,6 +63,7 @@
                 $user->sobrenome = $sobrenome;
                 $user->email = $email;
                 $user->senha = password_hash($senha2, PASSWORD_DEFAULT);
+                $user->token = 'ABCDE';
                 $bdF->insertUsuario($user);
                 header('Location: /Login');
             } else{

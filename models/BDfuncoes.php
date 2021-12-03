@@ -27,11 +27,12 @@ class BDfuncoes
         $user->nome = $cripto->encrypt($user->nome);
         $user->sobrenome = $cripto->encrypt($user->sobrenome);
         $bd = Conexao::get();
-        $query = $bd->prepare("INSERT INTO usuario(nome, sobrenome, email, senha) VALUES(:nome, :sobrenome, :email, :senha)");
+        $query = $bd->prepare("INSERT INTO usuario(nome, sobrenome, email, senha, token) VALUES(:nome, :sobrenome, :email, :senha, :token)");
         $query->bindParam(':nome', $user->nome);
         $query->bindParam(':sobrenome', $user->sobrenome);
         $query->bindParam(':email', $user->email);
         $query->bindParam(':senha', $user->senha);
+        $query->bindParam(':token', $user->token);
         $query->execute();
     }
 

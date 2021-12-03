@@ -6,6 +6,7 @@ class Usuario{
     private $sobrenome;
     private $email;
     private $senha;
+    private $token;
 
     public function __get($propriedade)
     {
