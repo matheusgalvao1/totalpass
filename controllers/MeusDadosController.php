@@ -68,6 +68,8 @@ class MeusDadosController
             'erroEmail' => '',
             'erroSenha' => ''
         ];
+        $tokenClass = new Token();
+        $token = $tokenClass->getToken();
         require("views/meusDados.view.php");
     }
 

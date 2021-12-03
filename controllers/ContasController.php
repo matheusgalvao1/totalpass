@@ -66,6 +66,8 @@ class ContasController
             // Edit conta
             $erroEditar = $_COOKIE['erroEdit'] ?? '';
             avaliarTempoEdit($contaSelecionada);
+            $tokenClass = new Token();
+            $token = $tokenClass->getToken();
         } catch (Exception $e) {
             $_SESSION['tituloPop'] = 'Erro';
             $_SESSION['textPop'] = $e->getMessage();

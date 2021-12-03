@@ -15,7 +15,7 @@
 <body style='background-color: #333'>
     <ul class="nav justify-content-center">
         <li class="nav-item" style="margin: 15px;">
-            <a class="nav-link" href="/novoToken" style="color: white; font-size: 20px"><i class="fa fa-refresh" style="margin-right: 5px; color: white"></i>Token: AC15B</a>
+            <a class="nav-link" href="/novoToken" style="color: white; font-size: 20px"><i class="fa fa-refresh" style="margin-right: 5px; color: white"></i>Token: <?= $token ?></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/Home">

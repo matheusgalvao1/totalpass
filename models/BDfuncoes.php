@@ -157,4 +157,37 @@ class BDfuncoes
             throw new Exception('Falha ao excluir conta de usuário: Problema no banco!');
         }
     }
+
+    public function getToken($id){
+        try{
+            $bd = Conexao::get();
+            $query = $bd->prepare("SELECT token FROM usuario WHERE idusuario = :idusuario");
+            $query->bindParam(':idusuario', $id);
+            $query->execute();
+            $token = $query->fetchColumn();
+            return $token;
+        } catch (Exception $e){
+            throw new Exception('Falha ao resgatar token!');
+        }
+    }
+
+    public function existeToken($token){
+        $bd = Conexao::get();
+        $query = $bd->prepare("SELECT token FROM usuario WHERE token = :token");
+        $query->bindParam(':token', $token);
+        $query->execute();
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+        if($result){
+            return true;
+        } else
+            return false;
+    }
+
+    public function updateToken($token, $id){
+        $bd = Conexao::get();
+        $query = $bd->prepare("UPDATE usuario SET token = :token WHERE idusuario = :idusuario");
+        $query->bindParam(':token', $token);
+        $query->bindParam(':idusuario', $id);
+        $query->execute();
+    }
 }

@@ -59,11 +59,12 @@
             if(validarDadosCadastro($nome, $sobrenome, $email, $senha, $senha2, $erros)){
                 $user = new Usuario();
                 $bdF = new BDfuncoes();
+                $tokenClass = new Token(); 
                 $user->nome = $nome;
                 $user->sobrenome = $sobrenome;
                 $user->email = $email;
                 $user->senha = password_hash($senha2, PASSWORD_DEFAULT);
-                $user->token = 'ABCDE';
+                $user->token = $tokenClass->gerarTokenUnico();
                 $bdF->insertUsuario($user);
                 header('Location: /Login');
             } else{

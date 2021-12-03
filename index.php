@@ -20,11 +20,11 @@
   Router::post('/editarConta', 'ContasController@editarConta');
   Router::get('/gerarSenha', 'GerarSenha@gerarSenha');
   Router::get('/not-found', 'PageController@notFound');
-  Router::post('/novoToken', 'Token@novoToken');
+  Router::get('/novoToken', 'Token@novoToken');
 
-  Router::error(static function(\Pecee\Http\Request $request, \Exception $exception) {
-    header("Location: /not-found");
-  });
+  // Router::error(static function(\Pecee\Http\Request $request, \Exception $exception) {
+  //   header("Location: /not-found");
+  // });
 
   Router::start();
 ?>
