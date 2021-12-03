@@ -1,6 +1,6 @@
 Para a instalação e execução do projeto, seguir os passos:
 1- Assegurar que o XAMPP está instalado e funcionando corretamente;
-2- Clonar o repositório git dentro da pasta XAMPP/htdocs (Certificar-se que está selecionada a branch "envio2");
+2- Clonar o repositório git dentro da pasta XAMPP/htdocs (Certificar-se que está selecionada a branch "envio3");
 3- Já dentro da pasta referente ao projeto (/totalpass), abrir o terminal e executar o comando : "php -S localhost:8080", ou outra porta;
 4- Executar o conteudo do arquivo "script.sql" no terminal de um Database (utilizamos MySql);
 5- Executar o comando "composer install";
