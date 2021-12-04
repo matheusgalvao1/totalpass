@@ -7,7 +7,9 @@ senha VARCHAR(1000),
 sobrenome VARCHAR(1000),
 nome VARCHAR(200),
 email VARCHAR(1000),
-token VARCHAR(10)
+token VARCHAR(10),
+created_at DATETIME,
+updated_at DATETIME,
 );
 
 CREATE TABLE Conta (
@@ -16,6 +18,8 @@ senha VARCHAR(500),
 nome VARCHAR(500),
 login VARCHAR(1000),
 idusuario INTEGER,
+created_at DATETIME,
+updated_at DATETIME,
 FOREIGN KEY(IDUsuario) REFERENCES Usuario (IDUsuario) ON DELETE CASCADE
 );
 
